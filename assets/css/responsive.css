@@ -1,0 +1,330 @@
+/* ===== TABLET (768px and below) ===== */
+@media (max-width: 768px) {
+    section {
+        padding: 6rem 1.5rem;
+    }
+
+    .hero {
+        padding: 80px 1.5rem 0 1.5rem;
+    }
+
+    .hero-grid {
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.875rem 2rem;
+        font-size: 0.8125rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .approach-intro {
+        max-width: 100%;
+    }
+
+    .approach-carousel {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .carousel-image {
+        height: 240px;
+        background-position: center center;
+        margin: 0 auto;
+    }
+
+    .approach-intro-image {
+        margin: 2rem auto 0;
+    }
+
+    .approach-intro-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .story-image {
+        margin-bottom: 2rem;
+    }
+
+    .story-image img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .who-section {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .who-section h2 {
+        font-size: 2rem;
+    }
+
+    .quick-cta {
+        padding: 6rem 1.5rem;
+    }
+
+    .quick-cta h2 {
+        font-size: 1.75rem;
+    }
+
+    .process-wrapper {
+        max-width: 100%;
+        padding: 6rem 1.5rem;
+    }
+
+    .process-arch {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .process-arch__left {
+        min-width: 100%;
+    }
+
+    .process-arch__right {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .process-arch__step {
+        height: auto;
+        padding: 2rem 0;
+    }
+
+    .process-img-wrapper {
+        position: static;
+        transform: none;
+        height: 360px;
+        margin: 0 auto 2rem auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .process-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        margin: 0 auto;
+    }
+
+    .story {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .story-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-grid {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .about-grid h2 {
+        font-size: 2.5rem;
+    }
+
+    .final-cta {
+        max-width: 100%;
+    }
+
+    .final-cta h2 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .features-header {
+        max-width: 100%;
+    }
+
+    .features-grid {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .credentials {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .credential-item {
+        width: 100%;
+    }
+}
+
+/* ===== MOBILE (480px and below) ===== */
+@media (max-width: 480px) {
+    section {
+        padding: 4rem 1rem;
+    }
+
+    .hero {
+        padding: 80px 1rem 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.875rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9375rem;
+    }
+
+    .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-label {
+        font-size: 0.65rem;
+    }
+
+    .carousel-title {
+        font-size: 1.5rem;
+    }
+
+    .carousel-description {
+        font-size: 13px;
+    }
+
+    .quick-cta {
+        padding: 4rem 1rem;
+    }
+
+    .quick-cta h2 {
+        font-size: 1.5rem;
+    }
+
+    .quick-cta p {
+        font-size: 0.875rem;
+    }
+
+    .process-wrapper {
+        padding: 4rem 1rem;
+    }
+
+    .step-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .step-content p {
+        font-size: 0.9375rem;
+    }
+
+    .story-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-grid h2 {
+        font-size: 2rem;
+    }
+
+    .about-grid p {
+        font-size: 0.9375rem;
+    }
+
+    .final-cta h2 {
+        font-size: 1.5rem;
+    }
+
+    .final-cta p {
+        font-size: 0.9375rem;
+    }
+
+    .footer-content {
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.875rem;
+    }
+
+    .icon-lg {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .carousel-image {
+        height: 200px;
+        background-position: center center;
+        margin: 0 auto;
+    }
+
+    .approach-intro-image {
+        margin: 1.5rem auto 0;
+    }
+
+    .approach-intro-image img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .process-img-wrapper {
+        height: 280px;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .story-image {
+        margin-bottom: 1.5rem;
+    }
+
+    .story-image img {
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}

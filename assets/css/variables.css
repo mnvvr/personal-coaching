@@ -1,0 +1,58 @@
+:root {
+    /* Core colors - gradient inspired */
+    --white: #FFFFFF;
+    --off-white: #FAFAFA;
+    --black: #1A1A1A;
+    --dark-purple: #674186;
+    --medium-purple: #745391;
+    --teal: #5d7d7e;
+    --sage-green: #4A7C46;
+    --forest-green: #2C5029;
+
+    /* Backgrounds */
+    --bg-sand: #F8F5F0;
+    --bg-light: #FCFCFC;
+
+    /* Text hierarchy */
+    --text-primary: #1A1A1A;
+    --text-heading: #674186;
+    --text-secondary: #2d1f3a;
+    --text-tertiary: #4a4a4a;
+    --text-muted: #7a7a7a;
+
+    /* Borders */
+    --border-subtle: rgba(26, 26, 26, 0.06);
+    --border-medium: rgba(103, 65, 134, 0.12);
+    --border-strong: rgba(103, 65, 134, 0.2);
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Fraunces', serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --spacing-3xl: 6rem;
+    --spacing-4xl: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+
+    /* Transitions */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-index */
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 1000;
+    --z-modal: 1500;
+    --z-tooltip: 2000;
+}
