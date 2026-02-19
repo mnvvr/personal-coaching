@@ -1662,72 +1662,73 @@
                 font-size: clamp(1.25rem, 3vw, 1.5rem);
             }
 
-            /* Process section - interleave steps and images on mobile */
+            /* Process section carousel on mobile */
             .process-arch {
+                display: none;
+            }
+
+            .process-carousel {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                width: 100%;
+            }
+
+            .process-carousel::-webkit-scrollbar {
+                display: none;
+            }
+
+            .process-slide {
+                flex: 0 0 100%;
+                min-width: 100%;
+                scroll-snap-align: start;
                 display: flex;
                 flex-direction: column;
-                gap: clamp(1.5rem, 3vw, 3rem);
+                gap: clamp(1.5rem, 3vw, 2rem);
+                padding-bottom: clamp(1.5rem, 3vw, 2rem);
+                box-sizing: border-box;
             }
 
-            .process-arch__left,
-            .process-arch__right {
-                display: contents;
-            }
-
-            /* Interleave: step1, img1, step2, img2, step3, img3 */
-            .process-arch__step:nth-child(1) {
-                order: 1;
-            }
-
-            .process-arch__step:nth-child(2) {
-                order: 3;
-            }
-
-            .process-arch__step:nth-child(3) {
-                order: 5;
-            }
-
-            .process-img-wrapper[data-index="1"] {
-                order: 2;
-            }
-
-            .process-img-wrapper[data-index="2"] {
-                order: 4;
-            }
-
-            .process-img-wrapper[data-index="3"] {
-                order: 6;
-            }
-
-            .process-arch__step {
-                height: auto;
-                padding: clamp(1rem, 2vw, 2rem) 0;
-            }
-
-            .process-img-wrapper {
-                position: static;
-                transform: none;
-                height: clamp(250px, 40vw, 350px);
-                border-radius: clamp(0.5rem, 1vw, 1rem);
-                overflow: hidden;
-            }
-
-            .step-inner {
+            .process-slide .step-inner {
                 max-width: 100%;
             }
 
-            /* Mobile step reveal animations */
-            .process-arch__step,
-            .process-img-wrapper {
-                opacity: 0;
-                transform: translateY(28px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
+            .process-slide .process-img-wrapper {
+                position: static;
+                transform: none;
+                height: clamp(220px, 55vw, 300px);
+                border-radius: clamp(0.5rem, 1vw, 1rem);
+                overflow: hidden;
+                border: 1px solid var(--border-subtle);
             }
 
-            .process-arch__step.in-view,
-            .process-img-wrapper.in-view {
-                opacity: 1;
-                transform: translateY(0);
+            .process-slide .process-img-wrapper img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .process-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: clamp(1.5rem, 3vw, 2rem);
+            }
+
+            .process-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: rgba(92, 58, 30, 0.2);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border: none;
+            }
+
+            .process-dot.active {
+                background: var(--dark-purple);
+                transform: scale(1.3);
             }
 
             /* Testimonials Mobile */
@@ -2540,18 +2541,50 @@
         // Desktop GSAP Animation
         const imgs = gsap.utils.toArray('.process-img-wrapper img');
 
-        // Mobile step reveal animations
+        // Mobile process carousel
         if (window.innerWidth < 769) {
-            const stepEls = document.querySelectorAll('.process-arch__step, .process-img-wrapper');
-            const stepObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        stepObserver.unobserve(entry.target);
-                    }
+            const arch = document.querySelector('.process-arch');
+            if (arch) {
+                const steps = Array.from(document.querySelectorAll('.process-arch__step'));
+                const imgWrappers = [
+                    document.querySelector('.process-img-wrapper[data-index="1"]'),
+                    document.querySelector('.process-img-wrapper[data-index="2"]'),
+                    document.querySelector('.process-img-wrapper[data-index="3"]'),
+                ];
+
+                const carousel = document.createElement('div');
+                carousel.className = 'process-carousel';
+
+                steps.forEach((step, i) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'process-slide';
+                    const stepInner = step.querySelector('.step-inner');
+                    if (stepInner) slide.appendChild(stepInner);
+                    if (imgWrappers[i]) slide.appendChild(imgWrappers[i]);
+                    carousel.appendChild(slide);
                 });
-            }, { threshold: 0.15 });
-            stepEls.forEach(el => stepObserver.observe(el));
+
+                const dotsEl = document.createElement('div');
+                dotsEl.className = 'process-dots';
+                steps.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'process-dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        carousel.scrollTo({ left: i * carousel.offsetWidth, behavior: 'smooth' });
+                    });
+                    dotsEl.appendChild(dot);
+                });
+
+                carousel.addEventListener('scroll', () => {
+                    const idx = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+                    dotsEl.querySelectorAll('.process-dot').forEach((d, i) => {
+                        d.classList.toggle('active', i === idx);
+                    });
+                }, { passive: true });
+
+                arch.replaceWith(carousel);
+                carousel.after(dotsEl);
+            }
         }
 
         ScrollTrigger.matchMedia({
