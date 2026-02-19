@@ -1635,7 +1635,7 @@
         }
 
         /* Responsive - Only structural breakpoint for navigation */
-        @media (max-width: 48rem) {
+        @media (max-width: 64rem) {
             .mobile-menu-toggle {
                 display: flex;
             }
@@ -2557,7 +2557,7 @@
         const imgs = gsap.utils.toArray('.process-img-wrapper img');
 
         // Mobile process carousel
-        if (window.innerWidth < 769) {
+        if (window.innerWidth < 1025) {
             const arch = document.querySelector('.process-arch');
             if (arch) {
                 const steps = Array.from(document.querySelectorAll('.process-arch__step'));
@@ -2618,7 +2618,7 @@
         }
 
         ScrollTrigger.matchMedia({
-            '(min-width: 769px)': function () {
+            '(min-width: 1025px)': function () {
                 const mainTimeline = gsap.timeline({
                     scrollTrigger: {
                         trigger: '.process-arch',
