@@ -1716,11 +1716,14 @@
             }
 
             .testimonials-carousel {
-                gap: clamp(2rem, 4vw, 3rem);
+                gap: 0;
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
             }
 
             .testimonial-slide {
-                flex: 0 0 90%;
+                flex: 0 0 100%;
+                min-width: 100%;
             }
 
             /* Approach Section Mobile */
@@ -1875,6 +1878,26 @@
             /* Approach pillars section padding */
             .approach-pillars-section {
                 padding: clamp(3rem, 8vh, 5rem) clamp(1rem, 4vw, 1.5rem);
+            }
+
+            /* How It Works - add vertical padding on mobile */
+            .how-it-works {
+                padding: clamp(3rem, 8vh, 5rem) clamp(1rem, 5vw, 1.5rem);
+            }
+
+            /* About - fix negative margins causing overlap */
+            .bio-photo {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .bio-photo img {
+                min-height: auto;
+                height: clamp(280px, 65vw, 400px);
+            }
+
+            .about-hero-intro {
+                margin-bottom: clamp(2rem, 5vw, 3rem);
             }
 
         }
@@ -2469,6 +2492,22 @@
             currentHeroBgIndex = (currentHeroBgIndex + 1) % heroBgImages.length;
             updateHeroBg(currentHeroBgIndex);
         }, 5000);
+
+        // Touch/swipe support for hero carousel
+        let heroTouchStartX = 0;
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('touchstart', (e) => {
+            heroTouchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        heroSection.addEventListener('touchend', (e) => {
+            const diff = heroTouchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                currentHeroBgIndex = diff > 0
+                    ? (currentHeroBgIndex + 1) % heroBgImages.length
+                    : (currentHeroBgIndex - 1 + heroBgImages.length) % heroBgImages.length;
+                updateHeroBg(currentHeroBgIndex);
+            }
+        }, { passive: true });
 
         // Set z-index for images
         document.querySelectorAll('.process-arch__right .process-img-wrapper').forEach((element) => {
