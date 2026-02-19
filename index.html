@@ -1716,6 +1716,20 @@
                 max-width: 100%;
             }
 
+            /* Mobile step reveal animations */
+            .process-arch__step,
+            .process-img-wrapper {
+                opacity: 0;
+                transform: translateY(28px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .process-arch__step.in-view,
+            .process-img-wrapper.in-view {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
             /* Testimonials Mobile */
             .testimonial-text {
                 max-width: 100%;
@@ -2525,6 +2539,20 @@
 
         // Desktop GSAP Animation
         const imgs = gsap.utils.toArray('.process-img-wrapper img');
+
+        // Mobile step reveal animations
+        if (window.innerWidth < 769) {
+            const stepEls = document.querySelectorAll('.process-arch__step, .process-img-wrapper');
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        stepObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            stepEls.forEach(el => stepObserver.observe(el));
+        }
 
         ScrollTrigger.matchMedia({
             '(min-width: 769px)': function () {
