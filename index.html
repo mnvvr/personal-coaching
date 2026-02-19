@@ -749,8 +749,7 @@
         section {
             max-width: 1400px;
             margin: 0 auto;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
-            min-height: 100vh;
+            padding: clamp(10rem, 20vh, 16rem) clamp(1rem, 5vw, 3rem);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -786,14 +785,10 @@
         /* Approach Section - Redesigned */
         .approach {
             background: var(--white);
-            min-height: auto;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
         }
 
         .approach-pillars-section {
             background: linear-gradient(to bottom, var(--white) 0%, rgba(122, 168, 159, 0.02) 50%, var(--white) 100%);
-            min-height: auto;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
         }
 
         .approach-main-title {
@@ -809,11 +804,10 @@
         .approach-intro-content {
             display: flex;
             gap: clamp(3rem, 6vw, 6rem);
-            align-items: start;
-            margin-bottom: clamp(5rem, 10vw, 8rem);
+            align-items: center;
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .approach-text {
@@ -832,13 +826,13 @@
 
         .approach-visual {
             flex: 1 1 auto;
-            display: flex;
-            align-items: stretch;
+            max-width: 50%;
         }
 
         .approach-visual img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 450px;
             object-fit: cover;
             border-radius: 0;
             box-shadow: 0 clamp(12px, 2vw, 20px) clamp(32px, 5vw, 60px) rgba(0, 0, 0, 0.08);
@@ -847,6 +841,30 @@
         .approach-pillars {
             display: flex;
             gap: clamp(2rem, 4vw, 3rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .pillars-header {
+            max-width: 1200px;
+            margin: 0 auto clamp(2rem, 4vw, 3rem);
+            text-align: center;
+        }
+
+        .pillars-title {
+            font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.75rem);
+            color: var(--text-primary);
+            line-height: 1.2;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .pillars-description {
+            font-size: clamp(0.9375rem, 1.1vw + 0.3rem, 1.0625rem);
+            line-height: 1.7;
+            color: var(--text-secondary);
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -944,14 +962,14 @@
         /* Quick CTA Section */
         .quick-cta {
             text-align: center;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
             position: relative;
             max-width: none !important;
             margin-left: 0;
             margin-right: 0;
             width: 100%;
-            min-height: 60vh;
             overflow: hidden;
+            min-height: auto;
+            padding: clamp(4rem, 8vh, 6rem) clamp(1rem, 5vw, 3rem);
         }
 
         .quick-cta::before {
@@ -993,12 +1011,34 @@
             margin-right: auto;
         }
 
+        /* Journey Transition Banner */
+        .journey-transition {
+            text-align: center;
+            padding: clamp(2.5rem, 5vh, 4rem) clamp(1rem, 5vw, 3rem);
+            background: var(--dark-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: none;
+            width: 100%;
+            margin: 0;
+        }
+
+        .journey-transition h2 {
+            font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+            color: var(--white);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+
         /* How It Works */
         .how-it-works {
             background: var(--white);
-            padding: 0 !important;
-            min-height: auto;
             display: block;
+            min-height: auto;
+            padding: 0 clamp(1rem, 5vw, 3rem);
         }
 
         .how-it-works .section-label {
@@ -1022,7 +1062,6 @@
         .process-wrapper {
             max-width: 1400px;
             margin: 0 auto;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
         }
 
 
@@ -1119,6 +1158,9 @@
             flex: 0 0 40%;
             min-width: 280px;
             position: relative;
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
 
         .story-content {
@@ -1144,7 +1186,7 @@
 
         .story-image {
             width: 100%;
-            background: var(--off-white);
+            background: transparent;
             border-radius: 0;
             overflow: hidden;
             margin-bottom: clamp(1rem, 2vw, 2rem);
@@ -1155,12 +1197,14 @@
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
             transition: all 0.5s ease;
         }
 
         .story-image:hover img {
             transform: scale(1.02);
+            border: none;
+            outline: none;
         }
 
         .story-meta {
@@ -1170,10 +1214,26 @@
             letter-spacing: 0.01em;
         }
 
+        .story-credentials {
+            display: flex;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: clamp(2rem, 4vw, 3rem);
+            padding-top: clamp(1.5rem, 3vw, 2rem);
+            border-top: 1px solid var(--border-medium);
+            flex-wrap: wrap;
+        }
+
+        .story-credentials .cred-line {
+            font-size: clamp(0.6875rem, 0.85vw, 0.8125rem);
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+        }
+
         /* About Section - Restored with Meet Tuğçe title */
         .about-new {
             background: var(--white);
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
+            overflow: visible;
         }
 
         .about-hero-intro {
@@ -1226,9 +1286,10 @@
         .about-bio-section {
             display: flex;
             gap: clamp(4rem, 8vw, 8rem);
-            align-items: start;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            overflow: visible;
         }
 
         .bio-content {
@@ -1258,19 +1319,22 @@
         .bio-photo {
             flex: 1 1 auto;
             max-width: 500px;
+            align-self: stretch;
+            margin-top: -4rem;
+            margin-bottom: -4rem;
         }
 
         .bio-photo img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            min-height: 500px;
+            object-fit: cover;
             display: block;
         }
 
         /* Testimonials Section - Redesigned with Carousel */
         .testimonials {
             background: var(--white);
-            min-height: auto;
-            padding: clamp(3rem, 8vh, 10vh) clamp(1rem, 5vw, 3rem);
         }
 
         .testimonials-new-container {
@@ -1285,7 +1349,9 @@
             margin-bottom: clamp(3rem, 6vw, 5rem);
             font-weight: 600;
             letter-spacing: -0.02em;
+            text-align: center;
         }
+
 
         .testimonials-carousel {
             display: flex;
@@ -1359,25 +1425,23 @@
         }
 
         .nav-dot {
-            width: clamp(10px, 2vw, 12px);
-            height: clamp(10px, 2vw, 12px);
+            width: clamp(8px, 1.5vw, 12px);
+            height: clamp(8px, 1.5vw, 12px);
             border-radius: 50%;
             background: rgba(93, 139, 132, 0.3);
-            transition: all 0.3s ease;
+            border: 2px solid rgba(93, 139, 132, 0.5);
             cursor: pointer;
-            border: 1px solid rgba(93, 139, 132, 0.2);
+            transition: all 0.3s ease;
         }
 
         .nav-dot:hover {
-            background: rgba(93, 139, 132, 0.5);
-            transform: scale(1.2);
+            background: rgba(93, 139, 132, 0.6);
         }
 
         .nav-dot.active {
-            background: var(--primary-teal);
-            width: clamp(32px, 4vw, 40px);
-            border-radius: 50px;
-            border-color: var(--primary-teal);
+            background: var(--dark-purple);
+            border-color: var(--dark-purple);
+            transform: scale(1.3);
         }
 
 
@@ -1420,14 +1484,14 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
             gap: clamp(2rem, 4vw, 4rem);
             margin-bottom: clamp(2rem, 4vw, 4rem);
         }
 
         .footer-content>* {
-            flex: 1 1 180px;
-            max-width: 300px;
+            flex: none;
         }
 
         .footer-brand .logo {
@@ -1439,7 +1503,7 @@
             font-size: clamp(0.8125rem, 1vw, 0.9375rem);
             line-height: 1.65;
             margin-bottom: clamp(1rem, 2vw, 2rem);
-            max-width: min(300px, 100%);
+            max-width: min(400px, 100%);
         }
 
         .footer-links h4 {
@@ -1453,10 +1517,12 @@
 
         .footer-links ul {
             list-style: none;
+            display: flex;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .footer-links ul li {
-            margin-bottom: clamp(0.5rem, 1vw, 1rem);
+            margin-bottom: 0;
         }
 
         .footer-links a {
@@ -1779,26 +1845,17 @@
     </section>
 
     <!-- Approach Section -->
-    <section class="approach" id="approach">
-        <div class="approach-intro-content" style="align-items: flex-start !important;">
-            <div class="approach-text">
-                <div class="section-label">APPROACH</div>
-                <h2 class="approach-main-title" style="max-width: 100% !important;">Your Body Has a Story — Let's Listen to It</h2>
-                <p class="approach-description">
-                    Health isn't just about managing what feels off — it's about understanding how your body, mind, and
-                    daily life all work together. My approach blends Functional Medicine Health Coaching with
-                    mindfulness-based tools to help you reconnect with your body and build healthy, sustainable routines
-                    that support your wellbeing — without extremes or quick fixes.
-                </p>
-            </div>
-            <div class="approach-visual">
-                <img src="./images/mind-body-soul-2026-01-07-02-09-58-utc.jpg" alt="Healthy nutrition and lifestyle approach">
-            </div>
+    <section class="approach-pillars-section" id="approach">
+        <div class="pillars-header">
+            <div class="section-label">APPROACH</div>
+            <h2 class="pillars-title">Your Body Has a Story — Let's Listen to It</h2>
+            <p class="pillars-description">
+                Health isn't just about managing what feels off — it's about understanding how your body, mind, and
+                daily life all work together. My approach blends Functional Medicine Health Coaching with
+                mindfulness-based tools to help you reconnect with your body and build healthy, sustainable routines
+                that support your wellbeing — without extremes or quick fixes.
+            </p>
         </div>
-    </section>
-
-    <!-- Approach Pillars -->
-    <section class="approach-pillars-section">
         <div class="approach-pillars">
             <div class="approach-pillar">
                 <div class="approach-pillar-icon">
@@ -1896,6 +1953,11 @@
         </div>
     </section>
 
+    <!-- Journey Title -->
+    <div class="journey-transition">
+        <h2>Your Journey to Better Health</h2>
+    </div>
+
     <!-- Who I Work With -->
     <section class="who-section" id="who-i-work-with">
         <div>
@@ -1914,7 +1976,7 @@
     </section>
 
     <!-- Quick CTA -->
-    <section class="quick-cta" style="background: url('./images/the-silhouette-of-a-group-of-people-is-celebrating-2026-01-09-07-52-59-utc.jpg') center/cover no-repeat;">
+    <section class="quick-cta" style="background: url('./images/jumping.jpg') center/cover no-repeat;">
         <h2>Does This Sound Like You?</h2>
         <p>Let's talk. Book a free discovery call to explore how functional medicine coaching can support your unique
             health journey.</p>
@@ -1923,13 +1985,7 @@
 
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
-        <div class="process-spacer"></div>
-
         <div class="process-wrapper">
-            <div class="process-header" style="margin-bottom: 0.5rem !important; text-align: center;">
-                <h2 class="section-title" style="margin-bottom: 0 !important;">Your Journey to Better Health</h2>
-            </div>
-
             <div class="process-arch">
                 <div class="process-arch__left">
                     <div class="process-arch__step">
@@ -2030,7 +2086,7 @@
     <section class="story" id="about">
         <div class="story-sidebar">
             <div class="story-image">
-                <img src="./images/Tugce1.jpg" alt="Tuğçe - Functional Medicine Health Coach">
+                <img src="./images/tugceyeni1.jpeg" alt="Tuğçe - Functional Medicine Health Coach">
             </div>
             <div class="story-meta">
                 Functional Medicine Certified Health Coach (FMCA)<br>
@@ -2059,18 +2115,6 @@
 
     <!-- About Preview - Redesigned -->
     <section class="about-new">
-        <div class="about-hero-intro">
-            <h1 class="about-hello-title">HELLO, I'M TUĞÇE</h1>
-            <div class="about-hero-photo">
-                <img src="./images/Tugce3.jpg" alt="Tuğçe - Functional Medicine Health Coach">
-            </div>
-            <div class="about-credentials-list">
-                <div class="cred-line">FUNCTIONAL MEDICINE CERTIFIED COACH</div>
-                <div class="cred-line">MBSR PRACTITIONER</div>
-                <div class="cred-line">SINCE 2020</div>
-            </div>
-        </div>
-
         <div class="about-bio-section">
             <div class="bio-content">
                 <div class="section-label">ABOUT</div>
@@ -2079,7 +2123,7 @@
                 <p>With a background in engineering and over a decade of experience in the tech industry, I bring both structure and empathy to my coaching. My goal is to help you build a clear, confident, and compassionate relationship with your health — one that supports your unique life and goals.</p>
             </div>
             <div class="bio-photo">
-                <img src="./images/Tugce2.jpg" alt="Tuğçe portrait">
+                <img src="./images/tugceyeni4.jpeg" alt="Tuğçe portrait">
             </div>
         </div>
     </section>
@@ -2118,25 +2162,9 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4>RESOURCES</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Free Resources</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>LEGAL</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
-            </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2020 BetterHealth Edge powered by AMF-Edge | All rights reserved</p>
+            <p>© 2026 BetterHealth Edge | All rights reserved</p>
         </div>
     </footer>
 
