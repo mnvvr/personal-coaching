@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         * {
@@ -25,35 +25,35 @@
         }
 
         :root {
-            /* Core colors - Calming wellness palette */
-            --white: #FAFAF8;
-            --off-white: #F5F3F0;
+            /* Core colors - Terracotta palette from logo */
+            --white: #FDF9F5;
+            --off-white: #F5EDE6;
             --black: #1A1A1A;
-            --dark-purple: #2D5645;
-            --medium-purple: #4A7C6B;
-            --teal: #5D8B84;
-            --sage-green: #7BA89F;
-            --forest-green: #3D6B5E;
+            --dark-purple: #5C3A1E;
+            --medium-purple: #8B5E3C;
+            --teal: #C4896A;
+            --sage-green: #D4A47C;
+            --forest-green: #7A4E30;
 
             /* Backgrounds */
-            --bg-sand: #F9F6F2;
-            --bg-light: #F5F9F9;
+            --bg-sand: #F5EDE6;
+            --bg-light: #FBF6F1;
 
             /* Text hierarchy */
-            --text-primary: #0d1f1c;
-            --text-heading: #0d1f1c;
-            --text-secondary: #3D4942;
-            --text-tertiary: #5A6B66;
-            --text-muted: #8A9B95;
+            --text-primary: #3A2215;
+            --text-heading: #3A2215;
+            --text-secondary: #5C3A1E;
+            --text-tertiary: #7A5D48;
+            --text-muted: #A89080;
 
             /* Borders */
-            --border-subtle: rgba(45, 86, 69, 0.08);
-            --border-medium: rgba(45, 86, 69, 0.12);
-            --border-strong: rgba(45, 86, 69, 0.2);
+            --border-subtle: rgba(92, 58, 30, 0.08);
+            --border-medium: rgba(92, 58, 30, 0.12);
+            --border-strong: rgba(92, 58, 30, 0.2);
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
             line-height: 1.65;
             background: var(--white);
@@ -71,7 +71,7 @@
         h1,
         h2,
         h3 {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             line-height: 1.15;
             letter-spacing: -0.025em;
@@ -108,17 +108,14 @@
         }
 
         .logo {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
-            font-weight: 600;
-            color: var(--black);
             text-decoration: none;
-            letter-spacing: 0.08em;
-            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
         }
 
-        .logo:hover {
-            color: var(--dark-purple);
+        .logo img {
+            height: clamp(48px, 6vw, 68px);
+            width: auto;
         }
 
         .nav-links {
@@ -129,7 +126,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-tertiary);
+            color: var(--text-secondary);
             font-weight: 500;
             font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
             letter-spacing: 0.01em;
@@ -227,7 +224,8 @@
             height: clamp(8px, 1.5vw, 12px);
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            border: none;
+            outline: none;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -282,14 +280,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #4A7C6B 0%, #5D8B84 100%);
+            background: linear-gradient(135deg, #8B5E3C 0%, #C4896A 100%);
             z-index: 9999;
         }
 
         .donk-logo {
             position: absolute;
             top: clamp(1.5rem, 3vw, 3rem);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
             letter-spacing: 0.08em;
@@ -346,7 +344,7 @@
         }
 
         .breathe-text span {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.5rem, 3vw, 3rem);
             font-weight: 500;
             color: #FFFFFF;
@@ -477,7 +475,7 @@
             animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
             animation-iteration-count: infinite;
             transform: translate(-50%, -50%) scale(var(--initial-scale));
-            filter: drop-shadow(0 0 0 #4A7C6B) brightness(0.8) saturate(1.2);
+            filter: drop-shadow(0 0 0 #8B5E3C) brightness(0.8) saturate(1.2);
         }
 
         @keyframes pulse1 {
@@ -726,12 +724,12 @@
         }
 
         .cta-button.dark::before {
-            background: var(--black);
+            background: var(--text-primary);
         }
 
         .cta-button.dark:hover {
             color: var(--white);
-            border-color: var(--black);
+            border-color: var(--text-primary);
         }
 
         .cta-secondary {
@@ -873,14 +871,14 @@
             flex: 1 1 240px;
             padding: clamp(1.5rem, 3vw, 2rem);
             background: transparent;
-            border: 1px solid rgba(93, 139, 132, 0.12);
+            border: 1px solid rgba(139, 94, 60, 0.12);
             border-radius: clamp(8px, 1.5vw, 12px);
             transition: all 0.3s ease;
         }
 
         .approach-pillar:hover {
             transform: translateY(-2px);
-            border-color: rgba(93, 139, 132, 0.25);
+            border-color: rgba(139, 94, 60, 0.25);
         }
 
         .approach-pillar-icon {
@@ -909,7 +907,7 @@
             font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
             color: var(--text-heading);
             margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             letter-spacing: -0.01em;
             line-height: 1.3;
@@ -1090,7 +1088,7 @@
         }
 
         .step-number {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(0.75rem, 1vw, 0.875rem);
             font-weight: 600;
             color: var(--text-muted);
@@ -1102,7 +1100,7 @@
             font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
             color: var(--text-primary);
             margin-bottom: clamp(1rem, 2vw, 2rem);
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             line-height: 1.2;
             letter-spacing: -0.02em;
@@ -1151,7 +1149,7 @@
             flex-direction: row;
             gap: clamp(3rem, 6vw, 6rem);
             align-items: start;
-            background: linear-gradient(to bottom, var(--white) 0%, rgba(93, 139, 132, 0.02) 50%, var(--white) 100%);
+            background: linear-gradient(to bottom, var(--white) 0%, rgba(139, 94, 60, 0.02) 50%, var(--white) 100%);
         }
 
         .story-sidebar {
@@ -1379,7 +1377,7 @@
         .quote-mark-open {
             font-size: clamp(6rem, 12vw, 10rem);
             line-height: 1;
-            color: rgba(93, 139, 132, 0.15);
+            color: rgba(139, 94, 60, 0.15);
             font-weight: 700;
             position: absolute;
             top: 0;
@@ -1389,7 +1387,7 @@
         .quote-mark-close {
             font-size: clamp(6rem, 12vw, 10rem);
             line-height: 1;
-            color: rgba(93, 139, 132, 0.15);
+            color: rgba(139, 94, 60, 0.15);
             font-weight: 700;
             position: absolute;
             bottom: clamp(3rem, 6vw, 5rem);
@@ -1428,19 +1426,19 @@
             width: clamp(8px, 1.5vw, 12px);
             height: clamp(8px, 1.5vw, 12px);
             border-radius: 50%;
-            background: rgba(93, 139, 132, 0.3);
-            border: 2px solid rgba(93, 139, 132, 0.5);
+            background: rgba(139, 94, 60, 0.3);
+            border: none;
+            outline: none;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .nav-dot:hover {
-            background: rgba(93, 139, 132, 0.6);
+            background: rgba(139, 94, 60, 0.6);
         }
 
         .nav-dot.active {
             background: var(--dark-purple);
-            border-color: var(--dark-purple);
             transform: scale(1.3);
         }
 
@@ -1512,7 +1510,7 @@
             margin-bottom: clamp(1rem, 2vw, 2rem);
             letter-spacing: 0.15em;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .footer-links ul {
@@ -1809,7 +1807,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo">BETTERHEALTH EDGE</a>
+            <a href="/" class="logo"><img src="./images/logo.svg" alt="Better Health Personal Coaching"></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#approach">Approach</a></li>
@@ -2144,7 +2142,7 @@
     <footer style="background: linear-gradient(to bottom, rgba(122, 168, 159, 0.02) 0%, var(--bg-sand) 100%)">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo">BETTERHEALTH EDGE</a>
+                <a href="/" class="logo"><img src="./images/logo.svg" alt="Better Health Personal Coaching"></a>
                 <p>Functional Medicine Health Coaching for sustainable wellness and lasting change.</p>
                 <div class="social-links">
                     <a href="#" class="social-link">EMAIL</a>
