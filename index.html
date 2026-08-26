@@ -2712,6 +2712,14 @@
             './images/copyspace-woman-doing-yoga-performing-asanas-and-e-2026-01-05-23-13-35-utc.jpg',
             './images/figs-lettuce-salad-2026-01-05-04-29-13-utc.jpg'
         ];
+
+        // Preload all hero images up front so the crossfade never has to wait
+        // on a network fetch mid-transition (that wait is what caused the flicker).
+        heroBgImages.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+
         let currentHeroBgIndex = 0;
         const paginationDots = document.querySelectorAll('.pagination-dot');
         const heroBackground = document.querySelector('.hero-background');
