@@ -1,29 +1,29 @@
 :root {
-    /* Core colors - gradient inspired */
-    --white: #FFFFFF;
-    --off-white: #FAFAFA;
+    /* Core colors - Teal palette from logo */
+    --white: #FBFCFB;
+    --off-white: #EFF3F1;
     --black: #1A1A1A;
-    --dark-purple: #674186;
-    --medium-purple: #745391;
-    --teal: #5d7d7e;
-    --sage-green: #4A7C46;
-    --forest-green: #2C5029;
+    --dark-purple: #223638;
+    --medium-purple: #2A6B6E;
+    --teal: #2A6B6E;
+    --sage-green: #6C7F7B;
+    --forest-green: #1C4547;
 
     /* Backgrounds */
-    --bg-sand: #F8F5F0;
-    --bg-light: #FCFCFC;
+    --bg-sand: #F2F5F3;
+    --bg-light: #FBFCFB;
 
     /* Text hierarchy */
-    --text-primary: #1A1A1A;
-    --text-heading: #674186;
-    --text-secondary: #2d1f3a;
-    --text-tertiary: #4a4a4a;
-    --text-muted: #7a7a7a;
+    --text-primary: #223638;
+    --text-heading: #223638;
+    --text-secondary: #2A6B6E;
+    --text-tertiary: #4A5F5C;
+    --text-muted: #6C7F7B;
 
     /* Borders */
-    --border-subtle: rgba(26, 26, 26, 0.06);
-    --border-medium: rgba(103, 65, 134, 0.12);
-    --border-strong: rgba(103, 65, 134, 0.2);
+    --border-subtle: rgba(34, 54, 56, 0.08);
+    --border-medium: rgba(42, 107, 110, 0.12);
+    --border-strong: rgba(42, 107, 110, 0.2);
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
