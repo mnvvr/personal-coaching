@@ -1590,8 +1590,15 @@
         /* Testimonials - photo card style (new design) */
         .testimonials.photo-style {
             position: relative;
-            background: url('./images/testimonials-yoga.jpg') center/cover no-repeat;
+            max-width: none !important;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+            background: url('./images/testimonials-yoga.jpg') center 30% / cover no-repeat;
             padding: clamp(4rem, 10vh, 7rem) clamp(1rem, 5vw, 3rem);
+            min-height: clamp(560px, 90vh, 860px);
+            display: flex;
+            align-items: center;
             overflow: hidden;
         }
 
@@ -1606,6 +1613,7 @@
         .testimonials.photo-style .testimonials-new-container {
             position: relative;
             z-index: 1;
+            width: 100%;
         }
 
         .testimonials.photo-style .testimonials-main-title {
