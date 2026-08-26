@@ -388,6 +388,9 @@
             justify-content: center;
             text-align: left;
             width: 100%;
+            /* Start hidden so the GSAP entrance animation doesn't flash the
+               fully-visible content before the CDN scripts finish loading. */
+            opacity: 0;
         }
 
         .donk {
@@ -2686,13 +2689,13 @@
         });
 
         // Hero Initial Animation
-        gsap.from('.hero-content', {
-            opacity: 0,
-            y: 30,
-            duration: 1.5,
-            ease: 'power3.out',
-            delay: 0.5
-        });
+        // fromTo (not from) because .hero-content starts at opacity:0 in CSS to
+        // avoid a flash of fully-visible content before this script runs - .from()
+        // would read that already-0 opacity as its target and never animate in.
+        gsap.fromTo('.hero-content',
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', delay: 0.5 }
+        );
 
         // Background subtle parallax
         gsap.to('.hero-background', {
