@@ -1261,6 +1261,21 @@
             line-height: 1.8;
         }
 
+        .step-see-more {
+            display: inline-block;
+            margin-top: clamp(0.5rem, 1vw, 0.75rem);
+            color: var(--medium-purple);
+            font-size: clamp(0.875rem, 1vw, 0.9375rem);
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .step-see-more:hover {
+            color: var(--dark-purple);
+        }
+
         .process-arch__right {
             flex-shrink: 1;
             height: 100vh;
@@ -2347,6 +2362,7 @@
                                 <p>A relaxed, free session where we discuss your goals, challenges, and what you'd like
                                     to achieve. This is where we determine if we're a good fit and I learn about your
                                     unique health story.</p>
+                                <a href="#contact" class="step-see-more">See More</a>
                             </div>
                         </div>
                     </div>
@@ -2359,6 +2375,7 @@
                                 <p>Together, we create a realistic plan tailored to your body, lifestyle, and needs,
                                     guided by functional medicine principles. This isn't a generic protocol; it's built
                                     specifically for you.</p>
+                                <a href="#contact" class="step-see-more">See More</a>
                             </div>
                         </div>
                     </div>
@@ -2371,6 +2388,7 @@
                                 <p>Step-by-step guidance, accountability, and mindfulness-based tools to help you build
                                     confidence and lasting change. We adjust as you progress and learn what works for
                                     your body.</p>
+                                <a href="#contact" class="step-see-more">See More</a>
                             </div>
                         </div>
                     </div>
