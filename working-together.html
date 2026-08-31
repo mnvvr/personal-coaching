@@ -351,9 +351,9 @@
             }
         }
 
-        .program-step {
+        .program-step-photo {
             position: relative;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 3;
             border-radius: clamp(8px, 1.5vw, 12px);
             overflow: hidden;
             background-size: cover;
@@ -362,20 +362,15 @@
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .program-step:hover {
+        .program-step:hover .program-step-photo {
             transform: translateY(-4px);
         }
 
-        .program-step::before {
+        .program-step-photo::before {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, rgba(20, 35, 36, 0.1) 0%, rgba(20, 35, 36, 0.35) 55%, rgba(20, 35, 36, 0.85) 100%);
-            transition: background 0.35s ease;
-        }
-
-        .program-step:hover::before {
-            background: linear-gradient(180deg, rgba(20, 35, 36, 0.2) 0%, rgba(20, 35, 36, 0.45) 55%, rgba(20, 35, 36, 0.9) 100%);
         }
 
         .program-step-content {
@@ -402,24 +397,11 @@
             line-height: 1.25;
         }
 
-        /* Written detail for each step, under the photo grid */
-        .program-steps-detail {
-            max-width: 800px;
-            margin: 0 auto clamp(3rem, 6vw, 4rem);
-            display: flex;
-            flex-direction: column;
-            gap: clamp(0.875rem, 2vw, 1.25rem);
-        }
-
-        .program-steps-detail-item {
-            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
+        .program-step-desc {
+            margin-top: clamp(0.75rem, 1.5vw, 1rem);
+            font-size: clamp(0.8125rem, 1vw, 0.9375rem);
             color: var(--text-tertiary);
-            line-height: 1.75;
-        }
-
-        .program-steps-detail-item strong {
-            color: var(--text-primary);
-            font-weight: 600;
+            line-height: 1.65;
         }
 
         /* Closing note - highlighted callout */
@@ -695,68 +677,65 @@
         </div>
 
         <div class="program-steps">
-            <div class="program-step" style="background-image: url('./images/step-01-discovery.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 01</div>
-                    <h4>Free discovery call</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-01-discovery.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 01</div>
+                        <h4>Free discovery call</h4>
+                    </div>
                 </div>
+                <p class="program-step-desc">A relaxed 30-minute conversation. You tell me what's going on; I
+                    tell you honestly whether and how I can help. No pressure, no obligation.</p>
             </div>
-            <div class="program-step" style="background-image: url('./images/step-02-deepdive.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 02</div>
-                    <h4>Initial deep-dive session</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-02-deepdive.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 02</div>
+                        <h4>Initial deep-dive session</h4>
+                    </div>
                 </div>
+                <p class="program-step-desc">90 minutes to map your full health story — history, symptoms,
+                    lifestyle, stress, sleep, goals. This is where the root-cause work begins.</p>
             </div>
-            <div class="program-step" style="background-image: url('./images/step-03-weekly.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 03</div>
-                    <h4>Weekly coaching calls</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-03-weekly.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 03</div>
+                        <h4>Weekly coaching calls</h4>
+                    </div>
                 </div>
+                <p class="program-step-desc">Short, focused 30-minute sessions, every week. We review what
+                    happened, solve what got in the way, and set the next step.</p>
             </div>
-            <div class="program-step" style="background-image: url('./images/step-04-support.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 04</div>
-                    <h4>Support between sessions</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-04-support.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 04</div>
+                        <h4>Support between sessions</h4>
+                    </div>
                 </div>
+                <p class="program-step-desc">You're not alone between calls. I'm available on WhatsApp and
+                    email for questions, wobbles, and wins.</p>
             </div>
-            <div class="program-step" style="background-image: url('./images/step-05-tools.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 05</div>
-                    <h4>Practical tools at every phase</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-05-tools.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 05</div>
+                        <h4>Practical tools at every phase</h4>
+                    </div>
                 </div>
+                <p class="program-step-desc">Food and symptom tracking, elimination diet guidance where
+                    relevant, and mindfulness practices drawn from my MBSR training.</p>
             </div>
-            <div class="program-step" style="background-image: url('./images/step-06-closing.jpg')">
-                <div class="program-step-content">
-                    <div class="program-step-number">STEP 06</div>
-                    <h4>Closing session &amp; sustainability plan</h4>
+            <div class="program-step">
+                <div class="program-step-photo" style="background-image: url('./images/step-06-closing.jpg')">
+                    <div class="program-step-content">
+                        <div class="program-step-number">STEP 06</div>
+                        <h4>Closing session &amp; sustainability plan</h4>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="program-steps-detail">
-            <div class="program-steps-detail-item">
-                <strong>01 · Free discovery call</strong> — A relaxed 30-minute conversation. You tell me what's
-                going on; I tell you honestly whether and how I can help. No pressure, no obligation.
-            </div>
-            <div class="program-steps-detail-item">
-                <strong>02 · Initial deep-dive session</strong> — 90 minutes to map your full health story —
-                history, symptoms, lifestyle, stress, sleep, goals. This is where the root-cause work begins.
-            </div>
-            <div class="program-steps-detail-item">
-                <strong>03 · Weekly coaching calls</strong> — Short, focused 30-minute sessions, every week. We
-                review what happened, solve what got in the way, and set the next step.
-            </div>
-            <div class="program-steps-detail-item">
-                <strong>04 · Support between sessions</strong> — You're not alone between calls. I'm available
-                on WhatsApp and email for questions, wobbles, and wins.
-            </div>
-            <div class="program-steps-detail-item">
-                <strong>05 · Practical tools at every phase</strong> — Food and symptom tracking, elimination
-                diet guidance where relevant, and mindfulness practices drawn from my MBSR training.
-            </div>
-            <div class="program-steps-detail-item">
-                <strong>06 · Closing session &amp; sustainability plan</strong> — A clear, personal plan for what
-                you continue on your own — the habits, the tools, and the signals to watch.
+                <p class="program-step-desc">A clear, personal plan for what you continue on your own — the
+                    habits, the tools, and the signals to watch.</p>
             </div>
         </div>
 
