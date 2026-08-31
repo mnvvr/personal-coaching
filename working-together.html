@@ -398,37 +398,34 @@
             font-weight: 500;
         }
 
-        /* Groups - full photo card (same recipe as .quick-cta) */
+        /* Groups - full-bleed photo band (same recipe as .page-header) */
         .groups-section {
             padding-top: 0 !important;
         }
 
         .groups-card {
             position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
+            max-width: none !important;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
             text-align: center;
-            padding: clamp(3rem, 7vh, 5rem) clamp(1.5rem, 4vw, 3rem);
-            background: url('./images/the-silhouette-of-a-group-of-people-is-celebrating-2026-01-09-07-52-59-utc.jpg') center 55% / cover no-repeat;
+            padding: clamp(5rem, 12vh, 7rem) clamp(1.5rem, 4vw, 3rem);
+            background: url('./images/groups-bg.jpg') center 40% / cover no-repeat;
+            overflow: hidden;
         }
 
         .groups-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(20, 35, 36, 0.55) 0%, rgba(20, 35, 36, 0.75) 100%);
+            background: linear-gradient(180deg, rgba(20, 35, 36, 0.35) 0%, rgba(20, 35, 36, 0.65) 100%);
             z-index: 0;
         }
 
         .groups-card > * {
             position: relative;
             z-index: 1;
-        }
-
-        .groups-card .program-eyebrow {
-            color: rgba(255, 255, 255, 0.75);
         }
 
         .groups-card h3 {
@@ -441,8 +438,22 @@
             color: rgba(255, 255, 255, 0.85);
             font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
             max-width: 480px;
-            margin: 0 auto;
+            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
             line-height: 1.75;
+        }
+
+        .groups-card .cta-button {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .groups-card .cta-button::before {
+            background: var(--white);
+        }
+
+        .groups-card .cta-button:hover {
+            color: var(--black);
+            border-color: var(--white);
         }
 
         /* CTA button (matches index.html) */
@@ -715,9 +726,9 @@
 
     <section class="groups-section">
         <div class="groups-card">
-            <span class="program-eyebrow">GROUPS</span>
             <h3>BetterHealth Together</h3>
             <p>Details coming soon — check back shortly, or book a discovery call to ask about it directly.</p>
+            <a href="index.html#contact" class="cta-button">BOOK YOUR FREE DISCOVERY CALL</a>
         </div>
     </section>
 
