@@ -333,13 +333,19 @@
         /* Step grid - full text overlaid on the photo, contained within it */
         .program-steps {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: clamp(1.25rem, 2.5vw, 2rem);
-            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(1rem, 2vw, 1.5rem);
+            max-width: 1150px;
             margin: 0 auto clamp(3rem, 6vw, 4rem);
         }
 
-        @media (max-width: 40rem) {
+        @media (max-width: 56rem) {
+            .program-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 32rem) {
             .program-steps {
                 grid-template-columns: 1fr;
             }
@@ -347,7 +353,7 @@
 
         .program-step-photo {
             position: relative;
-            aspect-ratio: 3 / 4;
+            aspect-ratio: 2 / 3;
             border-radius: clamp(8px, 1.5vw, 12px);
             overflow: hidden;
             background-size: cover;
