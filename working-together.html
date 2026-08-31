@@ -382,24 +382,32 @@
 
         /* Closing note - highlighted callout */
         .program-closing {
-            max-width: 720px;
+            max-width: 760px;
             margin: clamp(3rem, 7vw, 5.5rem) auto clamp(2.5rem, 6vw, 4.5rem);
             text-align: center;
         }
 
-        .program-closing p {
-            font-size: clamp(1.25rem, 1.8vw + 0.6rem, 1.625rem);
+        .program-closing .program-closing-lead {
+            font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.75rem);
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.2;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+        }
+
+        .program-closing .program-closing-sub {
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            color: var(--text-tertiary);
+            line-height: 1.75;
+            max-width: min(480px, 100%);
+            margin: 0 auto;
         }
 
         /* Same regular + italic contrast as the "better/health" wordmark */
         .program-closing em {
             font-style: italic;
             color: var(--medium-purple);
-            font-weight: 600;
         }
 
         /* Groups - full-bleed photo band (same recipe as .page-header) */
@@ -727,8 +735,9 @@
         </div>
 
         <div class="program-closing">
-            <p><em>12 weeks</em> is where most clients start. <em>24 weeks</em> is there for those who want to
-                go further or whose journey needs more time. We'll decide together on the discovery call.</p>
+            <p class="program-closing-lead"><em>12 weeks</em> is where most clients start. <em>24 weeks</em> is
+                there for those who want to go further or whose journey needs more time.</p>
+            <p class="program-closing-sub">We'll decide together on the discovery call.</p>
         </div>
     </section>
 
