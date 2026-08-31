@@ -1,11 +1,11 @@
 :root {
-    /* Core colors - dusty blue / olive palette */
+    /* Core colors - logo teal, warmed up with cream + olive */
     --white: #FAF8F4;
     --off-white: #F0EBE0;
     --black: #1A1A1A;
-    --dark-purple: #1F3A52;
-    --medium-purple: #4F6B85;
-    --teal: #4F6B85;
+    --dark-purple: #223638;
+    --medium-purple: #2A6B6E;
+    --teal: #2A6B6E;
     --sage-green: #8C8A5C;
     --forest-green: #6B6944;
 
@@ -14,16 +14,16 @@
     --bg-light: #FAF8F4;
 
     /* Text hierarchy */
-    --text-primary: #1F3A52;
-    --text-heading: #1F3A52;
-    --text-secondary: #4F6B85;
-    --text-tertiary: #465A6B;
-    --text-muted: #7A8894;
+    --text-primary: #223638;
+    --text-heading: #223638;
+    --text-secondary: #2A6B6E;
+    --text-tertiary: #4A5F5C;
+    --text-muted: #6C7F7B;
 
     /* Borders */
-    --border-subtle: rgba(31, 58, 82, 0.08);
-    --border-medium: rgba(79, 107, 133, 0.12);
-    --border-strong: rgba(79, 107, 133, 0.2);
+    --border-subtle: rgba(34, 54, 56, 0.08);
+    --border-medium: rgba(42, 107, 110, 0.12);
+    --border-strong: rgba(42, 107, 110, 0.2);
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
