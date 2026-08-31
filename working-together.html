@@ -16,6 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Pinyon+Script&family=Source+Serif+4:wght@600&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="image" href="./images/calm.jpg" fetchpriority="high">
 
     <style>
         * {
@@ -67,7 +68,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
             line-height: 1.15;
@@ -220,12 +221,12 @@
         section {
             max-width: 1400px;
             margin: 0 auto;
-            padding: clamp(10rem, 20vh, 16rem) clamp(1rem, 5vw, 3rem);
+            padding: clamp(6rem, 14vh, 9rem) clamp(1rem, 5vw, 3rem);
         }
 
         @media (max-width: 64rem) {
             section {
-                padding: clamp(6rem, 16vh, 9rem) clamp(1rem, 5vw, 1.5rem);
+                padding: clamp(4rem, 10vh, 6rem) clamp(1rem, 5vw, 1.5rem);
             }
         }
 
@@ -238,13 +239,38 @@
             display: inline-block;
         }
 
-        /* Page header */
+        /* Photo page header (same recipe as .quick-cta on the homepage) */
         .page-header {
-            padding-bottom: clamp(2rem, 4vw, 3rem) !important;
             text-align: center;
+            position: relative;
+            max-width: none !important;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+            padding: clamp(9rem, 22vh, 13rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
+            background: url('./images/calm.jpg') center 35% / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(20, 35, 36, 0.72) 0%, rgba(20, 35, 36, 0.55) 100%);
+            z-index: 0;
+        }
+
+        .page-header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header .section-label {
+            color: rgba(255, 255, 255, 0.75);
         }
 
         .page-header h1 {
+            color: var(--white);
             font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
             letter-spacing: -0.02em;
             margin-bottom: clamp(1rem, 2vw, 1.5rem);
@@ -255,17 +281,13 @@
 
         .page-header p {
             font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: var(--text-tertiary);
+            color: rgba(255, 255, 255, 0.85);
             max-width: min(620px, 100%);
             margin: 0 auto;
             line-height: 1.75;
         }
 
         /* Programs section */
-        .programs {
-            padding-top: 0 !important;
-        }
-
         .programs-header {
             text-align: center;
             margin-bottom: clamp(3rem, 6vw, 4rem);
@@ -276,26 +298,14 @@
             letter-spacing: -0.02em;
         }
 
-        .program-cards {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(2rem, 4vw, 3rem);
-            max-width: 900px;
-            margin: 0 auto;
+        /* 1:1 program intro */
+        .program-intro {
+            max-width: 760px;
+            margin: 0 auto clamp(3rem, 6vw, 4rem);
+            text-align: center;
         }
 
-        /* Card language borrowed from the testimonials glass-card: soft
-           rounded corners, a subtle border, gentle depth - adapted to a
-           light background so the body copy stays fully readable. */
-        .program-card {
-            background: var(--white);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px) rgba(34, 54, 56, 0.06);
-            padding: clamp(2rem, 5vw, 3.5rem);
-        }
-
-        .program-card-eyebrow {
+        .program-eyebrow {
             font-size: clamp(0.6875rem, 1vw, 0.75rem);
             color: var(--medium-purple);
             letter-spacing: 0.18em;
@@ -304,76 +314,134 @@
             display: block;
         }
 
-        .program-card h3 {
+        .program-intro h3 {
             font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
             margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
             letter-spacing: -0.015em;
         }
 
-        .program-card > p {
+        .program-intro p {
             font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
             color: var(--text-tertiary);
             line-height: 1.8;
-            margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
         }
 
+        .program-intro p + p {
+            margin-top: 1rem;
+        }
+
+        /* Step grid - same card language as the homepage's approach pillars */
         .program-steps {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(1.5rem, 3vw, 2rem);
-            margin: clamp(1.75rem, 3.5vw, 2.5rem) 0;
-            padding: clamp(1.5rem, 3vw, 2rem) 0;
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(1.25rem, 2.5vw, 1.75rem);
+            max-width: 1000px;
+            margin: 0 auto clamp(3rem, 6vw, 4rem);
+        }
+
+        @media (max-width: 48rem) {
+            .program-steps {
+                grid-template-columns: 1fr;
+            }
         }
 
         .program-step {
-            display: flex;
-            gap: clamp(0.75rem, 1.5vw, 1.25rem);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: clamp(8px, 1.5vw, 12px);
+            transition: all 0.3s ease;
         }
 
-        .program-step-mark {
-            flex: none;
-            color: var(--medium-purple);
-            font-size: clamp(1.125rem, 1.5vw, 1.375rem);
-            line-height: 1.6;
-        }
-
-        .program-step-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            margin-bottom: 0.25rem;
-        }
-
-        .program-step-text {
-            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
-            color: var(--text-tertiary);
-            line-height: 1.75;
-        }
-
-        .program-card-closing {
-            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem) !important;
-            color: var(--text-muted) !important;
-            font-style: italic;
-            margin-bottom: 0 !important;
-        }
-
-        /* Groups card - content coming soon */
-        .program-card.is-stub {
-            text-align: center;
+        .program-step:hover {
+            transform: translateY(-2px);
             background: var(--bg-sand);
-            border-style: dashed;
+            border-color: var(--medium-purple);
         }
 
-        .program-card.is-stub h3 {
+        .program-step-number {
+            font-size: clamp(0.75rem, 1vw, 0.875rem);
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
             margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
         }
 
-        .program-card.is-stub p {
-            color: var(--text-muted);
+        .program-step h4 {
+            font-size: clamp(1.0625rem, 1.5vw + 0.3rem, 1.25rem);
+            margin-bottom: clamp(0.5rem, 1vw, 0.75rem);
+            letter-spacing: -0.01em;
+        }
+
+        .program-step p {
             font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
-            margin-bottom: 0;
+            color: var(--text-tertiary);
+            line-height: 1.7;
+        }
+
+        /* Closing note - highlighted callout */
+        .program-closing {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.5rem);
+            background: var(--bg-sand);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .program-closing p {
+            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            font-weight: 500;
+        }
+
+        /* Groups - full photo card (same recipe as .quick-cta) */
+        .groups-section {
+            padding-top: 0 !important;
+        }
+
+        .groups-card {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+            padding: clamp(3rem, 7vh, 5rem) clamp(1.5rem, 4vw, 3rem);
+            background: url('./images/the-silhouette-of-a-group-of-people-is-celebrating-2026-01-09-07-52-59-utc.jpg') center 55% / cover no-repeat;
+        }
+
+        .groups-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 35, 36, 0.55) 0%, rgba(20, 35, 36, 0.75) 100%);
+            z-index: 0;
+        }
+
+        .groups-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .groups-card .program-eyebrow {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .groups-card h3 {
+            color: var(--white);
+            font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
+            margin-bottom: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .groups-card p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.75;
         }
 
         /* CTA button (matches index.html) */
@@ -574,82 +642,65 @@
             <div class="section-label">PROGRAMS</div>
         </div>
 
-        <div class="program-cards">
-            <div class="program-card">
-                <span class="program-card-eyebrow">1:1</span>
-                <h3>The BetterHealth Programme</h3>
-                <p>Real change doesn't happen in a single session — it happens over weeks of small, consistent
-                    steps, with someone in your corner. That's why I work in structured 12-week programmes (with
-                    a 24-week option for deeper or more complex journeys).</p>
-                <p>Here's exactly what that looks like:</p>
+        <div class="program-intro">
+            <span class="program-eyebrow">1:1</span>
+            <h3>The BetterHealth Programme</h3>
+            <p>Real change doesn't happen in a single session — it happens over weeks of small, consistent
+                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
+                a 24-week option for deeper or more complex journeys).</p>
+            <p>Here's exactly what that looks like:</p>
+        </div>
 
-                <div class="program-steps">
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">Free discovery call</div>
-                            <p class="program-step-text">A relaxed 30-minute conversation. You tell me what's
-                                going on; I tell you honestly whether and how I can help. No pressure, no
-                                obligation.</p>
-                        </div>
-                    </div>
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">Initial deep-dive session (90 minutes)</div>
-                            <p class="program-step-text">We map your full health story — history, symptoms,
-                                lifestyle, stress, sleep, goals. This is where the root-cause work begins:
-                                seeing your health as one connected story, often for the first time.</p>
-                        </div>
-                    </div>
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">Weekly coaching calls</div>
-                            <p class="program-step-text">Short, focused 30-minute sessions, every week. We
-                                review what happened, solve what got in the way, and set the next step. Small
-                                and consistent beats big and occasional — that's the whole philosophy.</p>
-                        </div>
-                    </div>
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">Support between sessions</div>
-                            <p class="program-step-text">You're not alone between calls. I'm available on
-                                WhatsApp and email for questions, wobbles, and wins — because real life doesn't
-                                wait for the next appointment.</p>
-                        </div>
-                    </div>
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">Practical tools at every phase</div>
-                            <p class="program-step-text">Food and symptom tracking, elimination diet guidance
-                                where relevant, and mindfulness practices drawn from my MBSR training.
-                                Everything tailored to your body and your actual schedule.</p>
-                        </div>
-                    </div>
-                    <div class="program-step">
-                        <span class="program-step-mark">✦</span>
-                        <div>
-                            <div class="program-step-title">A closing session and your sustainability plan</div>
-                            <p class="program-step-text">Our final session is about a clear, personal plan for
-                                what you continue on your own — the habits, the tools, and the signals to
-                                watch.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="program-card-closing">12 weeks is where most clients start. 24 weeks is there for
-                    those who want to go further or whose journey needs more time. We'll decide together on the
-                    discovery call.</p>
+        <div class="program-steps">
+            <div class="program-step">
+                <div class="program-step-number">STEP 01</div>
+                <h4>Free discovery call</h4>
+                <p>A relaxed 30-minute conversation. You tell me what's going on; I tell you honestly whether
+                    and how I can help. No pressure, no obligation.</p>
             </div>
-
-            <div class="program-card is-stub">
-                <span class="program-card-eyebrow">GROUPS</span>
-                <h3>BetterHealth Together</h3>
-                <p>Details coming soon — check back shortly, or book a discovery call to ask about it directly.</p>
+            <div class="program-step">
+                <div class="program-step-number">STEP 02</div>
+                <h4>Initial deep-dive session</h4>
+                <p>90 minutes to map your full health story — history, symptoms, lifestyle, stress, sleep,
+                    goals. This is where the root-cause work begins.</p>
             </div>
+            <div class="program-step">
+                <div class="program-step-number">STEP 03</div>
+                <h4>Weekly coaching calls</h4>
+                <p>Short, focused 30-minute sessions, every week. We review what happened, solve what got in
+                    the way, and set the next step.</p>
+            </div>
+            <div class="program-step">
+                <div class="program-step-number">STEP 04</div>
+                <h4>Support between sessions</h4>
+                <p>You're not alone between calls. I'm available on WhatsApp and email for questions,
+                    wobbles, and wins.</p>
+            </div>
+            <div class="program-step">
+                <div class="program-step-number">STEP 05</div>
+                <h4>Practical tools at every phase</h4>
+                <p>Food and symptom tracking, elimination diet guidance where relevant, and mindfulness
+                    practices drawn from my MBSR training.</p>
+            </div>
+            <div class="program-step">
+                <div class="program-step-number">STEP 06</div>
+                <h4>Closing session &amp; sustainability plan</h4>
+                <p>A clear, personal plan for what you continue on your own — the habits, the tools, and the
+                    signals to watch.</p>
+            </div>
+        </div>
+
+        <div class="program-closing">
+            <p>12 weeks is where most clients start. 24 weeks is there for those who want to go further or
+                whose journey needs more time. We'll decide together on the discovery call.</p>
+        </div>
+    </section>
+
+    <section class="groups-section">
+        <div class="groups-card">
+            <span class="program-eyebrow">GROUPS</span>
+            <h3>BetterHealth Together</h3>
+            <p>Details coming soon — check back shortly, or book a discovery call to ask about it directly.</p>
         </div>
     </section>
 
