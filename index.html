@@ -810,7 +810,7 @@
             background: transparent;
             color: var(--white);
             text-decoration: none;
-            border-radius: 0;
+            border-radius: clamp(8px, 1.5vw, 12px);
             font-weight: 500;
             font-size: clamp(0.6875rem, 1vw, 0.8125rem);
             letter-spacing: 0.05em;
@@ -818,7 +818,7 @@
             border: 1.5px solid var(--white);
             position: relative;
             overflow: visible;
-            clip-path: inset(0);
+            clip-path: inset(0 round clamp(8px, 1.5vw, 12px));
             isolation: isolate;
             width: auto;
             max-width: fit-content;
@@ -960,7 +960,7 @@
             height: auto;
             max-height: 450px;
             object-fit: cover;
-            border-radius: 0;
+            border-radius: clamp(8px, 1.5vw, 12px);
             box-shadow: 0 clamp(12px, 2vw, 20px) clamp(32px, 5vw, 60px) rgba(0, 0, 0, 0.08);
         }
 
@@ -1293,6 +1293,7 @@
             width: 100%;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
+            border-radius: clamp(8px, 1.5vw, 12px);
         }
 
         .process-img-wrapper img {
@@ -1349,7 +1350,7 @@
         .story-image {
             width: 100%;
             background: transparent;
-            border-radius: 0;
+            border-radius: clamp(8px, 1.5vw, 12px);
             overflow: hidden;
             margin-bottom: clamp(1rem, 2vw, 2rem);
             border: none;
@@ -1653,7 +1654,7 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: var(--radius-lg);
+            border-radius: clamp(8px, 1.5vw, 12px);
             padding: clamp(2rem, 4vw, 3rem);
             max-width: 560px;
             width: 100%;
@@ -1915,7 +1916,7 @@
                 position: static;
                 transform: none;
                 height: clamp(220px, 55vw, 300px);
-                border-radius: clamp(0.5rem, 1vw, 1rem);
+                border-radius: clamp(8px, 1.5vw, 12px);
                 overflow: hidden;
                 border: 1px solid var(--border-subtle);
             }
