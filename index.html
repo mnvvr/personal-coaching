@@ -1727,7 +1727,9 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: flex-start;
+            flex-wrap: wrap;
             gap: clamp(2.5rem, 5vw, 5rem);
             margin-bottom: clamp(2rem, 4vw, 4rem);
         }
@@ -1741,7 +1743,7 @@
         }
 
         .footer-logo-mark img {
-            width: clamp(60px, 7vw, 88px);
+            width: clamp(160px, 16vw, 240px);
             height: auto;
         }
 
@@ -1757,8 +1759,7 @@
 
         .footer-columns {
             display: flex;
-            gap: clamp(2.5rem, 5vw, 5rem);
-            flex: 1;
+            gap: clamp(3rem, 7vw, 7rem);
         }
 
         .footer-col h4 {
@@ -2591,7 +2592,7 @@
     <!-- Footer -->
     <footer style="background: linear-gradient(to bottom, rgba(42, 107, 110, 0.02) 0%, var(--bg-sand) 100%)">
         <div class="footer-content">
-            <a href="/" class="footer-logo-mark"><img src="./images/press-kit/logo-icon.svg" alt="BetterHealth Edge"></a>
+            <a href="/" class="footer-logo-mark"><img src="./images/press-kit/logo-full.svg" alt="BetterHealth Edge"></a>
             <div class="footer-about">
                 <p>Functional Medicine Health Coaching for sustainable wellness and lasting change.</p>
             </div>
