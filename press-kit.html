@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Working Together | BetterHealth Edge</title>
-    <meta name="description" content="Explore the BetterHealth programmes: structured 1:1 coaching and group support, built around functional medicine and mindfulness-based tools.">
+    <title>Press Kit | BetterHealth Edge</title>
+    <meta name="description" content="BetterHealth Edge brand assets: logo files in every format, plus the brand color palette.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#F5F1E8">
-    <link rel="canonical" href="https://betterhealth.coach/working-together.html">
+    <link rel="canonical" href="https://betterhealth.coach/press-kit.html">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Pinyon+Script&family=Source+Serif+4:wght@600&display=swap"
         rel="stylesheet">
-    <link rel="preload" as="image" href="./images/calm.jpg" fetchpriority="high">
 
     <style>
         * {
@@ -141,13 +140,11 @@
             transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--dark-purple);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
@@ -239,307 +236,155 @@
             display: inline-block;
         }
 
-        /* Photo page header (same recipe as .quick-cta on the homepage) */
+        /* Plain text page header - a resource page, not a marketing one */
         .page-header {
             text-align: center;
-            position: relative;
-            max-width: none !important;
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
-            padding: clamp(11.5rem, calc(22vh + 2.5rem), 15.5rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
-            background: url('./images/calm.jpg') center 35% / cover no-repeat;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(34, 54, 56, 0.72) 0%, rgba(34, 54, 56, 0.55) 100%);
-            z-index: 0;
-        }
-
-        .page-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-header .section-label {
-            color: rgba(255, 255, 255, 0.75);
+            padding-bottom: clamp(2rem, 4vw, 3rem) !important;
         }
 
         .page-header h1 {
-            color: var(--white);
             font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
             letter-spacing: -0.02em;
             margin-bottom: clamp(1rem, 2vw, 1.5rem);
-            max-width: min(760px, 100%);
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .page-header p {
             font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-tertiary);
             max-width: min(620px, 100%);
             margin: 0 auto;
             line-height: 1.75;
         }
 
-        /* 1:1 program intro */
-        .program-intro {
-            max-width: 760px;
-            margin: 0 auto clamp(3rem, 6vw, 4rem);
-            text-align: center;
+        /* Logo grid */
+        .logos-section {
+            padding-top: 0 !important;
         }
 
-        .program-eyebrow {
-            font-size: clamp(0.6875rem, 1vw, 0.75rem);
-            color: var(--medium-purple);
-            letter-spacing: 0.18em;
-            font-weight: 600;
-            margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
-            display: block;
-        }
-
-        .program-intro h3 {
-            font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
-            margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
-            letter-spacing: -0.015em;
-        }
-
-        .program-intro p {
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: var(--text-tertiary);
-            line-height: 1.8;
-        }
-
-        .program-intro p + p {
-            margin-top: 1rem;
-        }
-
-        /* Step grid - full text overlaid on the photo, contained within it */
-        .program-steps {
+        .logo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(1rem, 2vw, 1.5rem);
-            max-width: 1150px;
-            margin: 0 auto clamp(3rem, 6vw, 4rem);
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(1.25rem, 2.5vw, 2rem);
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 56rem) {
-            .program-steps {
+        @media (max-width: 40rem) {
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .logo-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: clamp(8px, 1.5vw, 12px);
+            padding: clamp(1.5rem, 3vw, 2rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-card-preview {
+            background: var(--bg-sand);
+            border-radius: clamp(6px, 1vw, 8px);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            margin-bottom: clamp(1.25rem, 2.5vw, 1.5rem);
+        }
+
+        .logo-card-preview img {
+            max-width: 100%;
+            max-height: 100px;
+        }
+
+        .logo-card.icon-only .logo-card-preview img {
+            max-height: 120px;
+        }
+
+        .logo-card h3 {
+            font-size: clamp(1.0625rem, 1.5vw + 0.2rem, 1.1875rem);
+            margin-bottom: clamp(0.5rem, 1vw, 0.625rem);
+        }
+
+        .logo-card p {
+            font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+            color: var(--text-tertiary);
+            line-height: 1.65;
+            margin-bottom: clamp(1.25rem, 2.5vw, 1.5rem);
+            flex-grow: 1;
+        }
+
+        .logo-card-downloads {
+            display: flex;
+            gap: clamp(0.5rem, 1.5vw, 0.75rem);
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(0.5rem, 1.2vw, 0.6rem) clamp(1rem, 2.5vw, 1.375rem);
+            border: 1.5px solid var(--text-primary);
+            border-radius: 999px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: clamp(0.6875rem, 0.9vw, 0.75rem);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+
+        .download-link:hover {
+            background: var(--text-primary);
+            color: var(--white);
+        }
+
+        /* Color palette */
+        .palette-section {
+            padding-top: 0 !important;
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1rem, 2vw, 1.5rem);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 48rem) {
+            .palette-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 32rem) {
-            .program-steps {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .program-step-photo {
-            position: relative;
-            aspect-ratio: 2 / 3;
-            border-radius: clamp(8px, 1.5vw, 12px);
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 clamp(6px, 1.5vw, 14px) clamp(16px, 3vw, 28px) rgba(34, 54, 56, 0.12);
-        }
-
-        .program-step-photo::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.94) 68%, rgba(0, 0, 0, 0.97) 100%);
-        }
-
-        .program-step-content {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: clamp(1rem, 2.5vw, 1.5rem);
-            z-index: 1;
-        }
-
-        .program-step h4 {
-            color: var(--white);
-            font-size: clamp(1rem, 1.3vw + 0.3rem, 1.1875rem);
-            letter-spacing: -0.01em;
-            line-height: 1.25;
-            margin-bottom: clamp(0.5rem, 1vw, 0.625rem);
-        }
-
-        .program-step-desc {
-            font-size: clamp(0.75rem, 0.85vw + 0.15rem, 0.8125rem);
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.55;
-        }
-
-        /* Closing note - highlighted callout */
-        .program-closing {
-            max-width: 800px;
-            margin: clamp(4.5rem, 9vw, 7rem) auto clamp(4rem, 8vw, 6.5rem);
-            text-align: center;
-        }
-
-        .duration-cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: clamp(1rem, 2vw, 1.5rem);
-            margin-bottom: clamp(1.5rem, 3vw, 2rem);
-        }
-
-        @media (max-width: 30rem) {
-            .duration-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .duration-card {
-            padding: clamp(1.5rem, 3vw, 2rem);
+        .swatch {
             border: 1px solid var(--border-subtle);
             border-radius: clamp(8px, 1.5vw, 12px);
-            transition: all 0.3s ease;
-        }
-
-        .duration-card:hover {
-            background: var(--bg-sand);
-            border-color: var(--medium-purple);
-        }
-
-        .duration-card .duration-number {
-            font-style: italic;
-            color: var(--medium-purple);
-            font-size: clamp(1.375rem, 2vw + 0.5rem, 1.75rem);
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            display: block;
-            margin-bottom: clamp(0.5rem, 1vw, 0.625rem);
-        }
-
-        .duration-card p {
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: var(--text-tertiary);
-            line-height: 1.6;
-        }
-
-        .program-closing-note {
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        /* Groups - full-bleed photo band (same recipe as .page-header) */
-        .groups-section {
-            max-width: none !important;
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
-            padding: 0 !important;
-        }
-
-        .groups-card {
-            position: relative;
-            max-width: none !important;
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
-            text-align: center;
-            padding: clamp(5rem, 12vh, 7rem) clamp(1.5rem, 4vw, 3rem);
-            background: url('./images/groups-bg.jpg') center 40% / cover no-repeat;
             overflow: hidden;
         }
 
-        .groups-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(34, 54, 56, 0.35) 0%, rgba(34, 54, 56, 0.65) 100%);
-            z-index: 0;
+        .swatch-color {
+            height: 100px;
         }
 
-        .groups-card > * {
-            position: relative;
-            z-index: 1;
+        .swatch-label {
+            padding: clamp(0.875rem, 2vw, 1.25rem);
         }
 
-        .groups-card .section-label {
-            color: rgba(255, 255, 255, 0.75);
+        .swatch-name {
+            font-size: clamp(0.875rem, 1vw, 0.9375rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
         }
 
-        .groups-card h3 {
-            color: var(--white);
-            font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
-            margin-bottom: clamp(1rem, 2vw, 1.25rem);
-        }
-
-        .groups-card p {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            max-width: 480px;
-            margin: 0 auto clamp(1.5rem, 3vw, 2rem);
-            line-height: 1.75;
-        }
-
-        .groups-card .cta-button {
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        .groups-card .cta-button::before {
-            background: var(--white);
-        }
-
-        .groups-card .cta-button:hover {
-            color: var(--black);
-            border-color: var(--white);
-        }
-
-        /* CTA button (matches index.html) */
-        .cta-button {
-            display: inline-block;
-            padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.25rem, 3vw, 1.75rem);
-            background: transparent;
-            color: var(--black);
-            text-decoration: none;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: clamp(0.6875rem, 1vw, 0.8125rem);
-            letter-spacing: 0.05em;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1.5px solid var(--black);
-            position: relative;
-            overflow: visible;
-            clip-path: inset(0 round 999px);
-            isolation: isolate;
-            width: auto;
-            max-width: fit-content;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--text-primary);
-            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-
-        .cta-button:hover::before {
-            left: 0;
-        }
-
-        .cta-button:hover {
-            color: var(--white);
-            border-color: var(--text-primary);
+        .swatch-hex {
+            font-size: clamp(0.75rem, 0.9vw, 0.8125rem);
+            color: var(--text-muted);
+            font-family: monospace;
         }
 
         /* Footer (matches index.html) */
@@ -663,7 +508,7 @@
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#approach">Approach</a></li>
                 <li><a href="index.html#about">About</a></li>
-                <li><a href="working-together.html" class="active">Working Together</a></li>
+                <li><a href="working-together.html">Working Together</a></li>
                 <li><a href="index.html#testimonials">Testimonials</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
@@ -676,103 +521,101 @@
     </nav>
 
     <section class="page-header">
-        <h1>Working Together</h1>
-        <p>Two ways to get the structure, accountability, and root-cause guidance that make lasting change
-            possible. Choose what fits how you like to work.</p>
+        <div class="section-label">PRESS KIT</div>
+        <h1>Brand Assets</h1>
+        <p>Logo files in every format, plus the brand color palette. For press, partners, and anyone
+            featuring BetterHealth Edge.</p>
     </section>
 
-    <section class="programs">
-        <div class="program-intro">
-            <h3>The BetterHealth Programme</h3>
-            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
-                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
-                a 24-week option for deeper or more complex journeys).</p>
-            <p>Here's exactly what that looks like:</p>
-        </div>
+    <section class="logos-section">
+        <div class="logo-grid">
+            <div class="logo-card">
+                <div class="logo-card-preview">
+                    <img src="./images/press-kit/logo-full.svg" alt="BetterHealth Edge full logo with tagline">
+                </div>
+                <h3>Full Logo</h3>
+                <p>The primary lockup: mark, wordmark, and tagline together. Use for headers and any
+                    first-touch brand moment where there's room for it.</p>
+                <div class="logo-card-downloads">
+                    <a href="./images/press-kit/logo-full.svg" download class="download-link">SVG</a>
+                    <a href="./images/press-kit/logo-full.png" download class="download-link">PNG</a>
+                </div>
+            </div>
 
-        <div class="program-steps">
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-01-discovery.jpg')">
-                    <div class="program-step-content">
-                        <h4>Free discovery call</h4>
-                        <p class="program-step-desc">A relaxed 30-minute conversation. You tell me what's going
-                            on; I tell you honestly whether and how I can help. No pressure, no obligation.</p>
-                    </div>
+            <div class="logo-card">
+                <div class="logo-card-preview">
+                    <img src="./images/press-kit/logo-icon-wordmark.svg" alt="BetterHealth Edge icon and wordmark">
+                </div>
+                <h3>Icon + Wordmark</h3>
+                <p>Mark and wordmark without the tagline. Use in narrower headers or wherever the full
+                    lockup doesn't fit but the name still needs to read clearly.</p>
+                <div class="logo-card-downloads">
+                    <a href="./images/press-kit/logo-icon-wordmark.svg" download class="download-link">SVG</a>
+                    <a href="./images/press-kit/logo-icon-wordmark.png" download class="download-link">PNG</a>
                 </div>
             </div>
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-02-deepdive.jpg')">
-                    <div class="program-step-content">
-                        <h4>Initial deep-dive session (90 minutes)</h4>
-                        <p class="program-step-desc">We map your full health story: history, symptoms,
-                            lifestyle, stress, sleep, goals. This is where the root-cause work begins: seeing
-                            your health as one connected story, often for the first time.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-03-weekly.jpg')">
-                    <div class="program-step-content">
-                        <h4>Weekly coaching calls</h4>
-                        <p class="program-step-desc">Short, focused 30-minute sessions, every week. We review
-                            what happened, solve what got in the way, and set the next step. Small and
-                            consistent beats big and occasional. That's the whole philosophy.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-04-support.jpg')">
-                    <div class="program-step-content">
-                        <h4>Support between sessions</h4>
-                        <p class="program-step-desc">You're not alone between calls. I'm available on WhatsApp
-                            and email for questions, wobbles, and wins, because real life doesn't wait for the
-                            next appointment.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-05-tools.jpg')">
-                    <div class="program-step-content">
-                        <h4>Practical tools at every phase</h4>
-                        <p class="program-step-desc">Food and symptom tracking, elimination diet guidance where
-                            relevant, and mindfulness practices drawn from my MBSR training. Everything
-                            tailored to your body and your actual schedule.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="program-step-photo" style="background-image: url('./images/step-06-closing.jpg')">
-                    <div class="program-step-content">
-                        <h4>A closing session and your sustainability plan</h4>
-                        <p class="program-step-desc">Our final session is about a clear, personal plan for what
-                            you continue on your own: the habits, the tools, and the signals to watch.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="program-closing">
-            <div class="duration-cards">
-                <div class="duration-card">
-                    <span class="duration-number">12 weeks</span>
-                    <p>is where most clients start.</p>
+            <div class="logo-card">
+                <div class="logo-card-preview">
+                    <img src="./images/press-kit/logo-wordmark.svg" alt="BetterHealth Edge wordmark only">
                 </div>
-                <div class="duration-card">
-                    <span class="duration-number">24 weeks</span>
-                    <p>is there for those who want to go further or whose journey needs more time.</p>
+                <h3>Wordmark Only</h3>
+                <p>Just the "betterhealth" type, no tree mark. Use in wide, shallow spaces, such as an
+                    email signature or a byline, where the icon would feel cramped.</p>
+                <div class="logo-card-downloads">
+                    <a href="./images/press-kit/logo-wordmark.svg" download class="download-link">SVG</a>
+                    <a href="./images/press-kit/logo-wordmark.png" download class="download-link">PNG</a>
                 </div>
             </div>
-            <p class="program-closing-note">We'll decide together on the discovery call.</p>
+
+            <div class="logo-card icon-only">
+                <div class="logo-card-preview">
+                    <img src="./images/press-kit/logo-icon.svg" alt="BetterHealth Edge tree icon only">
+                </div>
+                <h3>Icon Only</h3>
+                <p>The tree mark on its own, no text. Use for favicons, social avatars, or any small
+                    square placement where type wouldn't stay legible.</p>
+                <div class="logo-card-downloads">
+                    <a href="./images/press-kit/logo-icon.svg" download class="download-link">SVG</a>
+                    <a href="./images/press-kit/logo-icon.png" download class="download-link">PNG</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="groups-section" id="contact">
-        <div class="groups-card">
-            <div class="section-label">GET STARTED</div>
-            <h3>BetterHealth Together</h3>
-            <p>Let's work together to understand your body, simplify your health, and create habits that help
-                you feel your best, every day.</p>
-            <a href="https://calendly.com/tugceakkalay/discovery-call" class="cta-button" target="_blank" rel="noopener">BOOK YOUR FREE DISCOVERY CALL</a>
+    <section class="palette-section">
+        <div class="programs-header" style="text-align:center; margin-bottom: clamp(2rem, 4vw, 3rem);">
+            <div class="section-label">COLOR PALETTE</div>
+        </div>
+        <div class="palette-grid">
+            <div class="swatch">
+                <div class="swatch-color" style="background:#223638;"></div>
+                <div class="swatch-label">
+                    <div class="swatch-name">Dark Teal</div>
+                    <div class="swatch-hex">#223638</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#2A6B6E;"></div>
+                <div class="swatch-label">
+                    <div class="swatch-name">Medium Teal</div>
+                    <div class="swatch-hex">#2A6B6E</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#8C8A5C;"></div>
+                <div class="swatch-label">
+                    <div class="swatch-name">Olive</div>
+                    <div class="swatch-hex">#8C8A5C</div>
+                </div>
+            </div>
+            <div class="swatch">
+                <div class="swatch-color" style="background:#F5F1E8; border-bottom:1px solid var(--border-subtle);"></div>
+                <div class="swatch-label">
+                    <div class="swatch-name">Warm Cream</div>
+                    <div class="swatch-hex">#F5F1E8</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -802,7 +645,7 @@
         </div>
         <div class="footer-bottom">
             <p>© 2026 BetterHealth Edge | All rights reserved · <a href="press-kit.html">Press Kit</a></p>
-            <p class="footer-credit">Powered by <a href="https://amf-edge.com/" target="_blank" rel="noopener">AMF Edge</a></p>
+            <p>Powered by <a href="https://amf-edge.com/" target="_blank" rel="noopener">AMF Edge</a></p>
         </div>
     </footer>
 
