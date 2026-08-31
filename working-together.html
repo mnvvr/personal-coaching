@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Working Together | BetterHealth Edge</title>
+    <meta name="description" content="Explore the BetterHealth programmes — structured 1:1 coaching and group support, built around functional medicine and mindfulness-based tools.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#F2F5F3">
+    <link rel="canonical" href="https://betterhealth.coach/working-together.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Pinyon+Script&family=Source+Serif+4:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        :root {
+            --white: #FBFCFB;
+            --off-white: #EFF3F1;
+            --black: #1A1A1A;
+            --dark-purple: #223638;
+            --medium-purple: #2A6B6E;
+            --teal: #2A6B6E;
+            --sage-green: #6C7F7B;
+            --forest-green: #1C4547;
+
+            --bg-sand: #F2F5F3;
+            --bg-light: #FBFCFB;
+
+            --text-primary: #223638;
+            --text-heading: #223638;
+            --text-secondary: #2A6B6E;
+            --text-tertiary: #4A5F5C;
+            --text-muted: #6C7F7B;
+
+            --border-subtle: rgba(34, 54, 56, 0.08);
+            --border-medium: rgba(42, 107, 110, 0.12);
+            --border-strong: rgba(42, 107, 110, 0.2);
+
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.65;
+            background: var(--white);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            color: var(--text-heading);
+        }
+
+        /* Navigation (matches index.html) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 5vw, 3rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: clamp(52px, 6.5vw, 72px);
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: clamp(0.75rem, 1vw + 0.25rem, 0.875rem);
+            letter-spacing: 0.01em;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--dark-purple);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-purple);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 64rem) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: clamp(1.5rem, 3vw, 3rem);
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: clamp(1.25rem, 3vw, 1.5rem);
+            }
+        }
+
+        /* Section wrapper (matches index.html's generic section rule) */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(10rem, 20vh, 16rem) clamp(1rem, 5vw, 3rem);
+        }
+
+        @media (max-width: 64rem) {
+            section {
+                padding: clamp(6rem, 16vh, 9rem) clamp(1rem, 5vw, 1.5rem);
+            }
+        }
+
+        .section-label {
+            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Page header */
+        .page-header {
+            padding-bottom: clamp(2rem, 4vw, 3rem) !important;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            max-width: min(760px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-header p {
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            color: var(--text-tertiary);
+            max-width: min(620px, 100%);
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* Programs section */
+        .programs {
+            padding-top: 0 !important;
+        }
+
+        .programs-header {
+            text-align: center;
+            margin-bottom: clamp(3rem, 6vw, 4rem);
+        }
+
+        .programs-header h2 {
+            font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.75rem);
+            letter-spacing: -0.02em;
+        }
+
+        .program-cards {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(2rem, 4vw, 3rem);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Card language borrowed from the testimonials glass-card: soft
+           rounded corners, a subtle border, gentle depth - adapted to a
+           light background so the body copy stays fully readable. */
+        .program-card {
+            background: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px) rgba(34, 54, 56, 0.06);
+            padding: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .program-card-eyebrow {
+            font-size: clamp(0.6875rem, 1vw, 0.75rem);
+            color: var(--medium-purple);
+            letter-spacing: 0.18em;
+            font-weight: 600;
+            margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+            display: block;
+        }
+
+        .program-card h3 {
+            font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
+            margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+            letter-spacing: -0.015em;
+        }
+
+        .program-card > p {
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            color: var(--text-tertiary);
+            line-height: 1.8;
+            margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+        }
+
+        .program-steps {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vw, 2rem);
+            margin: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+            padding: clamp(1.5rem, 3vw, 2rem) 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .program-step {
+            display: flex;
+            gap: clamp(0.75rem, 1.5vw, 1.25rem);
+        }
+
+        .program-step-mark {
+            flex: none;
+            color: var(--medium-purple);
+            font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+            line-height: 1.6;
+        }
+
+        .program-step-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            margin-bottom: 0.25rem;
+        }
+
+        .program-step-text {
+            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
+            color: var(--text-tertiary);
+            line-height: 1.75;
+        }
+
+        .program-card-closing {
+            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem) !important;
+            color: var(--text-muted) !important;
+            font-style: italic;
+            margin-bottom: 0 !important;
+        }
+
+        /* Groups card - content coming soon */
+        .program-card.is-stub {
+            text-align: center;
+            background: var(--bg-sand);
+            border-style: dashed;
+        }
+
+        .program-card.is-stub h3 {
+            margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+        }
+
+        .program-card.is-stub p {
+            color: var(--text-muted);
+            font-size: clamp(0.875rem, 1vw + 0.25rem, 0.9375rem);
+            margin-bottom: 0;
+        }
+
+        /* CTA button (matches index.html) */
+        .cta-button {
+            display: inline-block;
+            padding: clamp(0.6rem, 1.5vw, 0.75rem) clamp(1.25rem, 3vw, 1.75rem);
+            background: transparent;
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+            letter-spacing: 0.05em;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid var(--black);
+            position: relative;
+            overflow: visible;
+            clip-path: inset(0);
+            isolation: isolate;
+            width: auto;
+            max-width: fit-content;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--text-primary);
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--white);
+            border-color: var(--text-primary);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.75rem);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            max-width: min(760px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta p {
+            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+            color: var(--text-tertiary);
+            margin-bottom: clamp(1.5rem, 3vw, 3rem);
+            max-width: min(580px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.75;
+        }
+
+        /* Footer (matches index.html) */
+        footer {
+            background: linear-gradient(to bottom, rgba(122, 168, 159, 0.02) 0%, var(--bg-sand) 100%);
+            padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 5vw, 3rem) clamp(1.5rem, 3vw, 3rem);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: clamp(2rem, 4vw, 4rem);
+            margin-bottom: clamp(2rem, 4vw, 4rem);
+        }
+
+        .footer-content > * {
+            flex: none;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-tertiary);
+            font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+            line-height: 1.65;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            max-width: min(400px, 100%);
+        }
+
+        .footer-links h4 {
+            color: var(--text-primary);
+            font-size: clamp(0.6875rem, 0.8vw, 0.75rem);
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1rem, 2vw, 2rem);
+        }
+
+        .social-link {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+            transition: color 0.2s ease;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: clamp(1.5rem, 3vw, 3rem);
+            border-top: 1px solid var(--border-subtle);
+            font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 64rem) {
+            .footer-content {
+                flex-direction: column;
+                gap: clamp(2rem, 5vw, 3rem);
+            }
+
+            .footer-links ul {
+                flex-wrap: wrap;
+                gap: clamp(0.5rem, 2vw, 1rem);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="./images/betterhealthlogo.png?v=2" alt="Better Health Personal Coaching"></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#approach">Approach</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="working-together.html" class="active">Working Together</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="section-label">WORKING TOGETHER</div>
+        <h1>Working Together</h1>
+        <p>Two ways to get the structure, accountability, and root-cause guidance that make lasting change
+            possible — choose what fits how you like to work.</p>
+    </section>
+
+    <section class="programs">
+        <div class="programs-header">
+            <div class="section-label">PROGRAMS</div>
+        </div>
+
+        <div class="program-cards">
+            <div class="program-card">
+                <span class="program-card-eyebrow">1:1</span>
+                <h3>The BetterHealth Programme</h3>
+                <p>Real change doesn't happen in a single session — it happens over weeks of small, consistent
+                    steps, with someone in your corner. That's why I work in structured 12-week programmes (with
+                    a 24-week option for deeper or more complex journeys).</p>
+                <p>Here's exactly what that looks like:</p>
+
+                <div class="program-steps">
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">Free discovery call</div>
+                            <p class="program-step-text">A relaxed 30-minute conversation. You tell me what's
+                                going on; I tell you honestly whether and how I can help. No pressure, no
+                                obligation.</p>
+                        </div>
+                    </div>
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">Initial deep-dive session (90 minutes)</div>
+                            <p class="program-step-text">We map your full health story — history, symptoms,
+                                lifestyle, stress, sleep, goals. This is where the root-cause work begins:
+                                seeing your health as one connected story, often for the first time.</p>
+                        </div>
+                    </div>
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">Weekly coaching calls</div>
+                            <p class="program-step-text">Short, focused 30-minute sessions, every week. We
+                                review what happened, solve what got in the way, and set the next step. Small
+                                and consistent beats big and occasional — that's the whole philosophy.</p>
+                        </div>
+                    </div>
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">Support between sessions</div>
+                            <p class="program-step-text">You're not alone between calls. I'm available on
+                                WhatsApp and email for questions, wobbles, and wins — because real life doesn't
+                                wait for the next appointment.</p>
+                        </div>
+                    </div>
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">Practical tools at every phase</div>
+                            <p class="program-step-text">Food and symptom tracking, elimination diet guidance
+                                where relevant, and mindfulness practices drawn from my MBSR training.
+                                Everything tailored to your body and your actual schedule.</p>
+                        </div>
+                    </div>
+                    <div class="program-step">
+                        <span class="program-step-mark">✦</span>
+                        <div>
+                            <div class="program-step-title">A closing session and your sustainability plan</div>
+                            <p class="program-step-text">Our final session is about a clear, personal plan for
+                                what you continue on your own — the habits, the tools, and the signals to
+                                watch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="program-card-closing">12 weeks is where most clients start. 24 weeks is there for
+                    those who want to go further or whose journey needs more time. We'll decide together on the
+                    discovery call.</p>
+            </div>
+
+            <div class="program-card is-stub">
+                <span class="program-card-eyebrow">GROUPS</span>
+                <h3>BetterHealth Together</h3>
+                <p>Details coming soon — check back shortly, or book a discovery call to ask about it directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+        <div>
+            <div class="section-label">GET STARTED</div>
+            <h2>Ready to Begin Your Journey to Better Health?</h2>
+            <p>Let's work together to understand your body, simplify your health, and create habits that help
+                you feel your best, every day.</p>
+            <a href="index.html#contact" class="cta-button">BOOK YOUR FREE DISCOVERY CALL</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo"><img src="./images/betterhealthlogo.png?v=2" alt="Better Health Personal Coaching"></a>
+                <p>Functional Medicine Health Coaching for sustainable wellness and lasting change.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">EMAIL</a>
+                    <a href="#" class="social-link">INSTAGRAM</a>
+                    <a href="#" class="social-link">LINKEDIN</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>NAVIGATE</h4>
+                <ul>
+                    <li><a href="index.html#approach">Approach</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="working-together.html">Working Together</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 BetterHealth Edge | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('mobile-active');
+            document.body.style.overflow = navLinks.classList.contains('mobile-active') ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('mobile-active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Hide nav on scroll down, show on scroll up
+        const navEl = document.querySelector('nav');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            if (navLinks.classList.contains('mobile-active')) return;
+            const scroll = window.scrollY;
+            if (scroll > 80) {
+                navEl.classList.toggle('nav-hidden', scroll > lastScroll);
+            } else {
+                navEl.classList.remove('nav-hidden');
+            }
+            lastScroll = scroll;
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
