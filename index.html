@@ -125,6 +125,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Pinyon+Script&family=Source+Serif+4:wght@600&display=swap"
         rel="stylesheet">
+    <link rel="preload" as="image" href="./images/young-woman-with-arms-open-amongst-forest-ferns-2026-01-09-11-04-53-utc.jpg" fetchpriority="high">
     <style>
         * {
             margin: 0;
@@ -297,6 +298,9 @@
             bottom: -10%;
             z-index: 0;
             will-change: transform;
+            /* Brand-colored fallback so any brief gap before the photo paints
+               reads as an intentional dark backdrop, not a blank/broken flash. */
+            background-color: var(--dark-purple);
             --before-bg: url('./images/young-woman-with-arms-open-amongst-forest-ferns-2026-01-09-11-04-53-utc.jpg');
             --after-bg: url('./images/young-woman-with-arms-open-amongst-forest-ferns-2026-01-09-11-04-53-utc.jpg');
             --before-opacity: 1;
