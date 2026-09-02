@@ -352,6 +352,7 @@
         .hero {
             margin: 0;
             padding: 0;
+            padding-top: var(--nav-height, 140px);
             height: 100vh;
             width: 100vw;
             max-width: none !important;
@@ -2771,8 +2772,21 @@
 
         requestAnimationFrame(raf);
 
-        // Hide nav on scroll down, show on scroll up
+        // Keep the hero's content centered in the space actually visible
+        // below the fixed nav (nav overlays the hero, so centering against
+        // the full 100vh makes the content look shifted up/off-balance).
         const navEl = document.querySelector('nav');
+        function setNavHeightVar() {
+            document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
+        }
+        setNavHeightVar();
+        window.addEventListener('resize', setNavHeightVar);
+        const logoImg = navEl.querySelector('.logo img');
+        if (logoImg && !logoImg.complete) {
+            logoImg.addEventListener('load', setNavHeightVar, { once: true });
+        }
+
+        // Hide nav on scroll down, show on scroll up
         lenis.on('scroll', ({ scroll, direction }) => {
             if (navLinks.classList.contains('mobile-active')) return;
             if (scroll > 80) {
