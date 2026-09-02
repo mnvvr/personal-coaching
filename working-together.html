@@ -105,12 +105,23 @@
         .logo {
             text-decoration: none;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .logo img {
             height: clamp(68px, 8.5vw, 96px);
             width: auto;
+        }
+
+        .logo-tagline {
+            font-size: clamp(0.625rem, 1vw, 0.75rem);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -706,7 +717,10 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo"><img src="./images/betterhealthlogo.png?v=2" alt="BetterHealth Personal Coaching"></a>
+            <a href="index.html" class="logo">
+                <img src="./images/press-kit/logo-icon-wordmark.svg" alt="BetterHealth Personal Coaching">
+                <span class="logo-tagline">Functional Medicine Health Coaching</span>
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#home">Home</a></li>
                 <li><a href="index.html#approach">Approach</a></li>
