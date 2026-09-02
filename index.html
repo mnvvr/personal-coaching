@@ -288,6 +288,66 @@
             width: 100%;
         }
 
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            margin-left: 0.4em;
+            margin-bottom: 0.1em;
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: var(--white);
+            border: 1px solid var(--border-subtle);
+            border-radius: clamp(8px, 1.5vw, 12px);
+            box-shadow: 0 clamp(12px, 2vw, 20px) clamp(24px, 4vw, 36px) rgba(34, 54, 56, 0.14);
+            padding: 0.4rem;
+            min-width: 168px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            z-index: 1100;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown-menu a {
+            padding: 0.55rem 0.85rem !important;
+            border-radius: 6px;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .nav-dropdown-menu a::after {
+            display: none;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: rgba(42, 107, 110, 0.08);
+        }
+
         /* Hero Section */
         .hero {
             margin: 0;
@@ -1928,6 +1988,33 @@
                 font-size: clamp(1.25rem, 3vw, 1.5rem);
             }
 
+            .nav-dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding: 0;
+                margin-top: clamp(0.75rem, 2vw, 1rem);
+                align-items: center;
+                gap: clamp(0.5rem, 1.5vw, 0.75rem);
+            }
+
+            .nav-dropdown-menu a {
+                font-size: clamp(0.9375rem, 2vw, 1.0625rem) !important;
+                color: var(--text-muted);
+                padding: 0 !important;
+            }
+
             /* Process section carousel on mobile */
             .process-arch {
                 display: none;
@@ -2232,8 +2319,13 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#approach">Approach</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="working-together.html">Working Together</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li class="nav-dropdown">
+                    <a href="working-together.html">Working Together</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="working-together.html#events">Events</a>
+                        <a href="#testimonials">Testimonials</a>
+                    </div>
+                </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -2639,6 +2731,7 @@
                         <li><a href="#approach">Approach</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="working-together.html">Working Together</a></li>
+                        <li><a href="working-together.html#events">Events</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
