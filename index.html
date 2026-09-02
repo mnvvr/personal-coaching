@@ -841,6 +841,16 @@
             max-width: min(900px, 90vw);
         }
 
+        /* Brand mark: "Health" styled like the logo's italic wordmark half */
+        .bh-health {
+            font-style: italic;
+            color: var(--medium-purple);
+        }
+
+        .hero-content h1 .bh-health {
+            color: inherit;
+        }
+
         .hero-content p {
             font-size: clamp(0.9375rem, 1.5vw + 0.5rem, 1.2rem);
             color: rgba(255, 255, 255, 0.9);
@@ -859,12 +869,12 @@
         }
 
         .hero-content .cta-button::before {
-            background: var(--white);
+            background: var(--text-primary);
         }
 
         .hero-content .cta-button:hover {
-            color: var(--black);
-            border-color: var(--white);
+            color: var(--white);
+            border-color: var(--text-primary);
         }
 
 
@@ -895,7 +905,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: var(--white);
+            background: var(--text-primary);
             transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: -1;
         }
@@ -905,8 +915,8 @@
         }
 
         .cta-button:hover {
-            color: var(--black);
-            border-color: var(--white);
+            color: var(--white);
+            border-color: var(--text-primary);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
@@ -2333,7 +2343,7 @@
         <div class="hero-background"></div>
         <div class="hero-grid">
             <div class="hero-content">
-                <h1>Personalised,<br>Science-Based<br>Coaching for<br>Better Health</h1>
+                <h1>Personalised,<br>Science-Based<br>Coaching for<br>Better <span class="bh-health">Health</span></h1>
                 <p>Discover what your body truly needs to feel balanced, energised, and well, through sustainable
                     lifestyle changes that last.</p>
                 <a href="https://calendly.com/tugceakkalay/discovery-call" class="cta-button" target="_blank" rel="noopener">BOOK A FREE DISCOVERY CALL</a>
@@ -2457,7 +2467,7 @@
 
     <!-- Journey Title -->
     <div class="journey-transition">
-        <h2>Your Journey to Better Health</h2>
+        <h2>Your Journey to Better <span class="bh-health">Health</span></h2>
     </div>
 
     <!-- Who I Work With -->
@@ -2682,7 +2692,7 @@
     <section class="final-cta" id="contact">
         <div>
             <div class="section-label">GET STARTED</div>
-            <h2>Ready to Begin Your Journey to Better Health?</h2>
+            <h2>Ready to Begin Your Journey to Better <span class="bh-health">Health</span>?</h2>
             <p>Let's work together to understand your body, simplify your health, and create habits that help you feel
                 your
                 best, every day.</p>
