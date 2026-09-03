@@ -328,52 +328,129 @@
             display: inline-block;
         }
 
-        /* Photo page header (same recipe as .quick-cta on the homepage) */
-        .page-header {
-            text-align: center;
-            position: relative;
-            max-width: none !important;
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
-            padding: clamp(11.5rem, calc(22vh + 2.5rem), 15.5rem) clamp(1rem, 5vw, 3rem) clamp(4rem, 10vh, 6rem);
-            background: url('./images/calm.jpg') center 35% / cover no-repeat;
-            overflow: hidden;
+        /* Split hero: image + intro on the left, step list on the right */
+        .working-hero {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: clamp(1.5rem, 3vw, 2.75rem);
+            align-items: stretch;
+            max-width: 1150px;
+            margin: clamp(6.5rem, 13vh + 2rem, 9.5rem) auto clamp(3.5rem, 7vw, 5rem);
+            padding: 0 clamp(1rem, 5vw, 3rem);
         }
 
-        .page-header::before {
+        @media (max-width: 64rem) {
+            .working-hero {
+                padding: 0 clamp(1rem, 4vw, 1.5rem);
+            }
+        }
+
+        @media (max-width: 56rem) {
+            .working-hero {
+                grid-template-columns: 1fr;
+                margin-top: clamp(5.5rem, 11vh + 1.5rem, 7.5rem);
+            }
+        }
+
+        .working-hero-media {
+            position: relative;
+            border-radius: clamp(12px, 2vw, 18px);
+            overflow: hidden;
+            min-height: clamp(360px, 42vw, 460px);
+            background: url('./images/calm.jpg') center 35% / cover no-repeat;
+        }
+
+        .working-hero-media::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(34, 54, 56, 0.72) 0%, rgba(34, 54, 56, 0.55) 100%);
-            z-index: 0;
+            background: linear-gradient(180deg, rgba(34, 54, 56, 0.18) 0%, rgba(34, 54, 56, 0.8) 100%);
         }
 
-        .page-header > * {
+        .working-hero-text {
             position: relative;
             z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: clamp(1.75rem, 3.5vw, 2.5rem);
         }
 
-        .page-header .section-label {
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        .page-header h1 {
+        .working-hero-text h1 {
             color: var(--white);
-            font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
+            font-size: clamp(1.75rem, 3.2vw + 0.3rem, 2.625rem);
             letter-spacing: -0.02em;
-            margin-bottom: clamp(1rem, 2vw, 1.5rem);
-            max-width: min(760px, 100%);
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
         }
 
-        .page-header p {
-            font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
-            color: rgba(255, 255, 255, 0.85);
-            max-width: min(620px, 100%);
-            margin: 0 auto;
-            line-height: 1.75;
+        .working-hero-text p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: clamp(0.9375rem, 1vw + 0.2rem, 1.0625rem);
+            line-height: 1.7;
+            max-width: 34em;
+        }
+
+        .working-hero-steps {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .steps-intro {
+            font-size: clamp(1rem, 1.2vw + 0.3rem, 1.1875rem);
+            font-weight: 600;
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+            margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+        }
+
+        .step-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-list-item {
+            display: flex;
+            gap: clamp(0.85rem, 1.8vw, 1.1rem);
+            padding: clamp(0.75rem, 1.6vw, 1rem) 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .step-list-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .step-list-icon {
+            flex: none;
+            width: clamp(32px, 3.4vw, 38px);
+            height: clamp(32px, 3.4vw, 38px);
+            border-radius: 50%;
+            background: rgba(42, 107, 110, 0.1);
+            color: var(--medium-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.75rem, 0.9vw, 0.8125rem);
+            font-weight: 700;
+        }
+
+        .step-list-body h4 {
+            font-size: clamp(0.875rem, 1vw + 0.1rem, 0.9375rem);
+            color: var(--text-heading);
+            letter-spacing: -0.005em;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .step-list-desc {
+            font-size: clamp(0.75rem, 0.85vw + 0.1rem, 0.8125rem);
+            color: var(--text-tertiary);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* 1:1 program intro */
@@ -418,95 +495,6 @@
             margin-top: 1rem;
         }
 
-        /* Step grid - simple cards, no photos */
-        .program-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(1.25rem, 2.5vw, 1.75rem);
-            max-width: 1150px;
-            margin: 0 auto clamp(3rem, 6vw, 4rem);
-        }
-
-        @media (max-width: 56rem) {
-            .program-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 32rem) {
-            .program-steps {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .program-step {
-            border-radius: clamp(12px, 2vw, 18px);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: clamp(300px, 34vw, 340px);
-            transition: transform 0.3s ease;
-        }
-
-        .program-step:hover {
-            transform: translateY(-4px);
-        }
-
-        .program-step:nth-child(odd) {
-            background: var(--dark-purple);
-        }
-
-        .program-step:nth-child(even) {
-            background: var(--medium-purple);
-        }
-
-        .step-top {
-            padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem) 0;
-        }
-
-        .step-label {
-            display: block;
-            font-size: clamp(0.6875rem, 0.85vw, 0.75rem);
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            color: rgba(255, 255, 255, 0.65);
-            margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
-        }
-
-        .step-label::before {
-            content: '\2014\a0';
-        }
-
-        .program-step h4 {
-            color: var(--white);
-            font-weight: 800;
-            font-size: clamp(1.375rem, 2.2vw + 0.3rem, 1.75rem);
-            letter-spacing: -0.01em;
-            line-height: 1.15;
-            text-transform: uppercase;
-        }
-
-        .step-wave {
-            display: block;
-            width: 100%;
-            height: clamp(20px, 3vw, 28px);
-            margin-top: clamp(1rem, 2.5vw, 1.5rem);
-        }
-
-        .step-bottom {
-            background: var(--bg-light);
-            padding: 0 clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem);
-            margin-top: -1px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .program-step-desc {
-            font-size: clamp(0.8125rem, 0.9vw + 0.2rem, 0.9375rem);
-            color: var(--text-tertiary);
-            line-height: 1.65;
-        }
 
         /* Closing note - highlighted callout */
         .program-closing {
@@ -1019,106 +1007,62 @@
         </div>
     </nav>
 
-    <section class="page-header">
-        <h1>Working Together</h1>
-        <p>Two ways to get the structure, accountability, and root-cause guidance that make lasting change
-            possible. Choose what fits how you like to work.</p>
-    </section>
-
     <section class="programs">
-        <div class="program-intro">
-            <h3>The Better<span class="bh-health">Health</span> Programme</h3>
-            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
-                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
-                a 24-week option for deeper or more complex journeys).</p>
-            <p>Here's exactly what that looks like:</p>
-        </div>
-
-        <div class="program-steps">
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 01</span>
-                    <h4>Free discovery call</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">A relaxed 30-minute conversation. You tell me what's going
-                    on; I tell you honestly whether and how I can help. No pressure, no obligation.</p>
+        <div class="working-hero">
+            <div class="working-hero-media">
+                <div class="working-hero-text">
+                    <h1>Working Together</h1>
+                    <p>Two ways to get the structure, accountability, and root-cause guidance that make lasting change
+                        possible. Choose what fits how you like to work.</p>
                 </div>
             </div>
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 02</span>
-                    <h4>Initial deep-dive session (90 minutes)</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">We map your full health story: history, symptoms,
-                    lifestyle, stress, sleep, goals. This is where the root-cause work begins: seeing
-                    your health as one connected story, often for the first time.</p>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 03</span>
-                    <h4>Weekly coaching calls</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">Short, focused 30-minute sessions, every week. We review
-                    what happened, solve what got in the way, and set the next step. Small and
-                    consistent beats big and occasional. That's the whole philosophy.</p>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 04</span>
-                    <h4>Support between sessions</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">You're not alone between calls. I'm available on WhatsApp
-                    and email for questions, wobbles, and wins, because real life doesn't wait for the
-                    next appointment.</p>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 05</span>
-                    <h4>Practical tools at every phase</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">Food and symptom tracking, elimination diet guidance where
-                    relevant, and mindfulness practices drawn from my MBSR training. Everything
-                    tailored to your body and your actual schedule.</p>
-                </div>
-            </div>
-            <div class="program-step">
-                <div class="step-top">
-                    <span class="step-label">STEP 06</span>
-                    <h4>A closing session and your sustainability plan</h4>
-                    <svg class="step-wave" viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,14 C40,2 80,26 120,14 C160,2 200,26 240,14 C265,7 285,18 300,13 L300,24 L0,24 Z" style="fill:var(--bg-light)"/></svg>
-                </div>
-                <div class="step-bottom">
-                    <p class="program-step-desc">Our final session is about a clear, personal plan for what
-                    you continue on your own: the habits, the tools, and the signals to watch.</p>
+            <div class="working-hero-steps">
+                <p class="steps-intro">Here's exactly what that looks like:</p>
+                <div class="step-list">
+                    <div class="step-list-item">
+                        <div class="step-list-icon">01</div>
+                        <div class="step-list-body">
+                            <h4>Free discovery call</h4>
+                            <p class="step-list-desc">A relaxed 30-minute conversation. You tell me what's going on; I tell you honestly whether and how I can help. No pressure, no obligation.</p>
+                        </div>
+                    </div>
+                    <div class="step-list-item">
+                        <div class="step-list-icon">02</div>
+                        <div class="step-list-body">
+                            <h4>Initial deep-dive session (90 minutes)</h4>
+                            <p class="step-list-desc">We map your full health story: history, symptoms, lifestyle, stress, sleep, goals. This is where the root-cause work begins: seeing your health as one connected story, often for the first time.</p>
+                        </div>
+                    </div>
+                    <div class="step-list-item">
+                        <div class="step-list-icon">03</div>
+                        <div class="step-list-body">
+                            <h4>Weekly coaching calls</h4>
+                            <p class="step-list-desc">Short, focused 30-minute sessions, every week. We review what happened, solve what got in the way, and set the next step. Small and consistent beats big and occasional. That's the whole philosophy.</p>
+                        </div>
+                    </div>
+                    <div class="step-list-item">
+                        <div class="step-list-icon">04</div>
+                        <div class="step-list-body">
+                            <h4>Support between sessions</h4>
+                            <p class="step-list-desc">You're not alone between calls. I'm available on WhatsApp and email for questions, wobbles, and wins, because real life doesn't wait for the next appointment.</p>
+                        </div>
+                    </div>
+                    <div class="step-list-item">
+                        <div class="step-list-icon">05</div>
+                        <div class="step-list-body">
+                            <h4>Practical tools at every phase</h4>
+                            <p class="step-list-desc">Food and symptom tracking, elimination diet guidance where relevant, and mindfulness practices drawn from my MBSR training. Everything tailored to your body and your actual schedule.</p>
+                        </div>
+                    </div>
+                    <div class="step-list-item">
+                        <div class="step-list-icon">06</div>
+                        <div class="step-list-body">
+                            <h4>A closing session and your sustainability plan</h4>
+                            <p class="step-list-desc">Our final session is about a clear, personal plan for what you continue on your own: the habits, the tools, and the signals to watch.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="program-closing">
-            <div class="duration-cards">
-                <div class="duration-card">
-                    <span class="duration-number">12 weeks</span>
-                    <p>is where most clients start.</p>
-                </div>
-                <div class="duration-card">
-                    <span class="duration-number">24 weeks</span>
-                    <p>is there for those who want to go further or whose journey needs more time.</p>
-                </div>
-            </div>
-            <p class="program-closing-note">We'll decide together on the discovery call.</p>
         </div>
 
         <div class="events-block" id="events">
@@ -1150,6 +1094,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="program-intro">
+            <h3>The Better<span class="bh-health">Health</span> Programme</h3>
+            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
+                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
+                a 24-week option for deeper or more complex journeys).</p>
+        </div>
+
+        <div class="program-closing">
+            <div class="duration-cards">
+                <div class="duration-card">
+                    <span class="duration-number">12 weeks</span>
+                    <p>is where most clients start.</p>
+                </div>
+                <div class="duration-card">
+                    <span class="duration-number">24 weeks</span>
+                    <p>is there for those who want to go further or whose journey needs more time.</p>
+                </div>
+            </div>
+            <p class="program-closing-note">We'll decide together on the discovery call.</p>
         </div>
     </section>
 
