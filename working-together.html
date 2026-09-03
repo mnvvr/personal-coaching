@@ -453,9 +453,75 @@
         }
 
         /* 1:1 program intro */
+        .programme-band {
+            position: relative;
+            max-width: none !important;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+            padding: clamp(6.5rem, 13vh + 2rem, 9.5rem) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+            background: url('./images/groups-bg.jpg') center 40% / cover no-repeat;
+            overflow: hidden;
+        }
+
+        .programme-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(34, 54, 56, 0.35) 0%, rgba(34, 54, 56, 0.65) 100%);
+            z-index: 0;
+        }
+
+        .programme-band > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .programme-band .program-intro h3 {
+            color: var(--white);
+        }
+
+        .programme-band .program-intro h3 .bh-health {
+            color: inherit;
+        }
+
+        .programme-band .program-intro p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .programme-band .duration-card {
+            border-left-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .programme-band .duration-card:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 30rem) {
+            .programme-band .duration-card {
+                border-top-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .programme-band .duration-card .duration-number {
+            color: var(--white);
+        }
+
+        .programme-band .duration-card:hover .duration-number {
+            color: var(--white);
+        }
+
+        .programme-band .duration-card > p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .programme-band .program-closing-note {
+            color: var(--white);
+        }
+
         .program-intro {
             max-width: 760px;
-            margin: clamp(6.5rem, 13vh + 2rem, 9.5rem) auto clamp(3rem, 6vw, 4rem);
+            margin: 0 auto clamp(3rem, 6vw, 4rem);
             padding: 0 clamp(1rem, 5vw, 3rem);
             text-align: center;
         }
@@ -951,25 +1017,27 @@
     </nav>
 
     <section class="programs">
-        <div class="program-intro">
-            <h3>The Better<span class="bh-health">Health</span> Programme</h3>
-            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
-                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
-                a 24-week option for deeper or more complex journeys).</p>
-        </div>
-
-        <div class="program-closing">
-            <div class="duration-cards">
-                <div class="duration-card">
-                    <span class="duration-number">12 weeks</span>
-                    <p>is where most clients start.</p>
-                </div>
-                <div class="duration-card">
-                    <span class="duration-number">24 weeks</span>
-                    <p>is there for those who want to go further or whose journey needs more time.</p>
-                </div>
+        <div class="programme-band">
+            <div class="program-intro">
+                <h3>The Better<span class="bh-health">Health</span> Programme</h3>
+                <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
+                    steps, with someone in your corner. That's why I work in structured 12-week programmes (with
+                    a 24-week option for deeper or more complex journeys).</p>
             </div>
-            <p class="program-closing-note">We'll decide together on the discovery call.</p>
+
+            <div class="program-closing">
+                <div class="duration-cards">
+                    <div class="duration-card">
+                        <span class="duration-number">12 weeks</span>
+                        <p>is where most clients start.</p>
+                    </div>
+                    <div class="duration-card">
+                        <span class="duration-number">24 weeks</span>
+                        <p>is there for those who want to go further or whose journey needs more time.</p>
+                    </div>
+                </div>
+                <p class="program-closing-note">We'll decide together on the discovery call.</p>
+            </div>
         </div>
 
         <div class="working-hero">
