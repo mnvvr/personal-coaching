@@ -335,7 +335,7 @@
             gap: clamp(1.5rem, 3vw, 2.75rem);
             align-items: stretch;
             max-width: 1150px;
-            margin: clamp(6.5rem, 13vh + 2rem, 9.5rem) auto clamp(3.5rem, 7vw, 5rem);
+            margin: 0 auto clamp(3.5rem, 7vw, 5rem);
             padding: 0 clamp(1rem, 5vw, 3rem);
         }
 
@@ -348,7 +348,6 @@
         @media (max-width: 56rem) {
             .working-hero {
                 grid-template-columns: 1fr;
-                margin-top: clamp(5.5rem, 11vh + 1.5rem, 7.5rem);
             }
         }
 
@@ -456,7 +455,8 @@
         /* 1:1 program intro */
         .program-intro {
             max-width: 760px;
-            margin: 0 auto clamp(3rem, 6vw, 4rem);
+            margin: clamp(6.5rem, 13vh + 2rem, 9.5rem) auto clamp(3rem, 6vw, 4rem);
+            padding: 0 clamp(1rem, 5vw, 3rem);
             text-align: center;
         }
 
@@ -1008,6 +1008,27 @@
     </nav>
 
     <section class="programs">
+        <div class="program-intro">
+            <h3>The Better<span class="bh-health">Health</span> Programme</h3>
+            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
+                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
+                a 24-week option for deeper or more complex journeys).</p>
+        </div>
+
+        <div class="program-closing">
+            <div class="duration-cards">
+                <div class="duration-card">
+                    <span class="duration-number">12 weeks</span>
+                    <p>is where most clients start.</p>
+                </div>
+                <div class="duration-card">
+                    <span class="duration-number">24 weeks</span>
+                    <p>is there for those who want to go further or whose journey needs more time.</p>
+                </div>
+            </div>
+            <p class="program-closing-note">We'll decide together on the discovery call.</p>
+        </div>
+
         <div class="working-hero">
             <div class="working-hero-media">
                 <div class="working-hero-text">
@@ -1094,27 +1115,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="program-intro">
-            <h3>The Better<span class="bh-health">Health</span> Programme</h3>
-            <p>Real change doesn't happen in a single session. It happens over weeks of small, consistent
-                steps, with someone in your corner. That's why I work in structured 12-week programmes (with
-                a 24-week option for deeper or more complex journeys).</p>
-        </div>
-
-        <div class="program-closing">
-            <div class="duration-cards">
-                <div class="duration-card">
-                    <span class="duration-number">12 weeks</span>
-                    <p>is where most clients start.</p>
-                </div>
-                <div class="duration-card">
-                    <span class="duration-number">24 weeks</span>
-                    <p>is there for those who want to go further or whose journey needs more time.</p>
-                </div>
-            </div>
-            <p class="program-closing-note">We'll decide together on the discovery call.</p>
         </div>
     </section>
 
