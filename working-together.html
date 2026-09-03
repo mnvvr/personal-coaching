@@ -463,7 +463,7 @@
         .programme-band {
             position: relative;
             width: 100%;
-            padding: clamp(6.5rem, 13vh + 2rem, 9.5rem) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+            padding: calc(var(--nav-height, 140px) + clamp(2.5rem, 5vh, 4rem)) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
             background-color: var(--dark-purple);
             overflow: hidden;
         }
@@ -1380,8 +1380,16 @@
             });
         });
 
-        // Hide nav on scroll down, show on scroll up
+        // Keep the programme band's content clear of the fixed nav
+        // regardless of actual nav height at a given viewport size.
         const navEl = document.querySelector('nav');
+        function setNavHeightVar() {
+            document.documentElement.style.setProperty('--nav-height', navEl.offsetHeight + 'px');
+        }
+        setNavHeightVar();
+        window.addEventListener('resize', setNavHeightVar);
+
+        // Hide nav on scroll down, show on scroll up
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
             if (navLinks.classList.contains('mobile-active')) return;
