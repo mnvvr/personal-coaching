@@ -170,9 +170,25 @@
 
         .nav-dropdown-menu {
             position: absolute;
-            top: calc(100% + 12px);
+            top: 100%;
             left: 50%;
-            transform: translateX(-50%) translateY(4px);
+            padding-top: 12px;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 1100;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .nav-dropdown-menu-inner {
             background: var(--white);
             border: 1px solid var(--border-subtle);
             border-radius: 8px;
@@ -182,19 +198,13 @@
             display: flex;
             flex-direction: column;
             gap: 0.3rem;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-            z-index: 1100;
+            transform: translateY(4px);
+            transition: transform 0.2s ease;
         }
 
-        .nav-dropdown:hover .nav-dropdown-menu,
-        .nav-dropdown:focus-within .nav-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
+        .nav-dropdown:hover .nav-dropdown-menu-inner,
+        .nav-dropdown:focus-within .nav-dropdown-menu-inner {
+            transform: translateY(0);
         }
 
         .nav-dropdown-menu a {
@@ -289,12 +299,17 @@
                 opacity: 1;
                 visibility: visible;
                 pointer-events: auto;
+                padding-top: 0;
+                margin-top: clamp(0.75rem, 2vw, 1rem);
+            }
+
+            .nav-dropdown-menu-inner {
                 transform: none;
                 box-shadow: none;
                 border: none;
                 background: transparent;
                 padding: 0;
-                margin-top: clamp(0.75rem, 2vw, 1rem);
+                min-width: 0;
                 align-items: center;
                 gap: clamp(0.5rem, 1.5vw, 0.75rem);
             }
@@ -1121,7 +1136,9 @@
                 <li class="nav-dropdown">
                     <a href="working-together.html" class="active">Working Together</a>
                     <div class="nav-dropdown-menu">
-                        <a href="working-together.html#events">Events</a>
+                        <div class="nav-dropdown-menu-inner">
+                            <a href="working-together.html#events">Events</a>
+                        </div>
                     </div>
                 </li>
                 <li><a href="index.html#testimonials">Testimonials</a></li>
