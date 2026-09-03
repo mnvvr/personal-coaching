@@ -592,10 +592,10 @@
 
         .event-card {
             display: flex;
-            gap: clamp(1.5rem, 3vw, 2.5rem);
+            flex-direction: column;
             border: 1px solid var(--border-subtle);
             border-radius: clamp(10px, 1.5vw, 14px);
-            padding: clamp(1.75rem, 4vw, 2.75rem);
+            overflow: hidden;
             transition: all 0.3s ease;
         }
 
@@ -604,32 +604,25 @@
         }
 
         .event-card-media {
-            flex: 0 0 clamp(200px, 26vw, 260px);
+            width: 100%;
+            height: clamp(280px, 34vw, 380px);
+            background: var(--bg-sand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .event-card-media img {
             display: block;
-            width: 100%;
-            height: auto;
-            border-radius: clamp(8px, 1.2vw, 10px);
-            box-shadow: 0 clamp(6px, 1.5vw, 14px) clamp(16px, 3vw, 28px) rgba(34, 54, 56, 0.12);
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
         }
 
         .event-card-body {
-            flex: 1;
-            min-width: 0;
-        }
-
-        @media (max-width: 40rem) {
-            .event-card {
-                flex-direction: column;
-            }
-
-            .event-card-media {
-                flex: none;
-                max-width: 220px;
-                margin: 0 auto;
-            }
+            padding: clamp(1.5rem, 3.5vw, 2.5rem);
         }
 
         .event-card-top {
