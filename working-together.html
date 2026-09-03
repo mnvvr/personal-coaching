@@ -453,23 +453,22 @@
         }
 
         /* 1:1 program intro */
-        .programme-band {
-            position: relative;
+        .programme-section {
             max-width: none !important;
-            margin-left: 0;
-            margin-right: 0;
+            margin: 0;
+            padding: 0 !important;
             width: 100%;
-            padding: clamp(6.5rem, 13vh + 2rem, 9.5rem) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
-            background: url('./images/groups-bg.jpg') center 40% / cover no-repeat;
-            overflow: hidden;
         }
 
-        .programme-band::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(34, 54, 56, 0.35) 0%, rgba(34, 54, 56, 0.65) 100%);
-            z-index: 0;
+        .programme-band {
+            position: relative;
+            width: 100%;
+            padding: clamp(6.5rem, 13vh + 2rem, 9.5rem) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vw, 6rem);
+            background-color: var(--dark-purple);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170' viewBox='0 0 170 170'%3E%3Cg fill='none' stroke='%232A6B6E' stroke-width='1.2' opacity='0.5'%3E%3Cpath d='M22 160C33 128 38 106 32 84C27 62 16 50 22 18'/%3E%3Cpath d='M32 84C48 78 59 66 65 49'/%3E%3Cpath d='M27 60C11 54 0 43 6 27'/%3E%3Cpath d='M120 150C128 122 132 100 138 80'/%3E%3Cpath d='M138 80C124 74 114 62 110 46'/%3E%3C/g%3E%3Cg fill='%232A6B6E' opacity='0.55'%3E%3Ccircle cx='65' cy='49' r='3'/%3E%3Ccircle cx='6' cy='27' r='2.5'/%3E%3Ccircle cx='22' cy='18' r='2.5'/%3E%3Ccircle cx='110' cy='46' r='2.5'/%3E%3Ccircle cx='138' cy='80' r='2'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 170px 170px;
+            overflow: hidden;
         }
 
         .programme-band > * {
@@ -634,10 +633,10 @@
         }
 
         .program-closing-note {
-            font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
+            font-size: clamp(1.0625rem, 1.3vw + 0.5rem, 1.3125rem);
             color: var(--text-secondary);
             font-weight: 500;
-            letter-spacing: -0.015em;
+            letter-spacing: -0.01em;
         }
 
         /* Events */
@@ -648,7 +647,7 @@
 
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 330px));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 480px));
             justify-content: center;
             gap: clamp(1.25rem, 2.5vw, 1.75rem);
         }
@@ -665,7 +664,6 @@
 
         .event-card {
             display: flex;
-            flex-direction: column;
             border: 1px solid var(--border-subtle);
             border-radius: clamp(10px, 1.5vw, 14px);
             overflow: hidden;
@@ -677,25 +675,62 @@
         }
 
         .event-card-media {
-            width: 100%;
-            height: 190px;
-            background: var(--bg-sand);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 0 0 40%;
+            display: block;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
         }
 
         .event-card-media img {
             display: block;
-            width: auto;
+            width: 100%;
             height: 100%;
-            max-width: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .event-card-media:hover img {
+            transform: scale(1.04);
+        }
+
+        .event-card-media::after {
+            content: '\2922';
+            position: absolute;
+            top: 0.6rem;
+            right: 0.6rem;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(34, 54, 56, 0.55);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 34rem) {
+            .event-card {
+                flex-direction: column;
+            }
+
+            .event-card-media {
+                flex: none;
+                width: 100%;
+                height: 220px;
+            }
         }
 
         .event-card-body {
+            flex: 1;
+            min-width: 0;
             padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
         }
 
         .event-card-top {
@@ -735,11 +770,132 @@
             font-size: 0.8125rem;
             color: var(--text-tertiary);
             line-height: 1.6;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-details {
+            margin: 0 0 1rem;
+        }
+
+        .event-format {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin: 0 0 0.85rem;
+        }
+
+        .event-format li {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            padding-left: 1.1rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .event-format li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--medium-purple);
+        }
+
+        .event-hosts {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .event-hosts strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .event-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-learn-more {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--medium-purple);
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .event-download {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .event-download:hover {
+            color: var(--text-primary);
         }
 
         .event-card-footer {
             display: flex;
+            margin-top: auto;
+            padding-top: 0.25rem;
+        }
+
+        .event-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(20, 28, 29, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.5rem, 5vw, 3rem);
+        }
+
+        .event-lightbox[hidden] {
+            display: none;
+        }
+
+        .event-lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .event-lightbox-close {
+            position: absolute;
+            top: clamp(1rem, 3vw, 1.75rem);
+            right: clamp(1rem, 3vw, 1.75rem);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-size: 1.25rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .event-lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.18);
         }
 
         /* Groups - full-bleed photo band (same recipe as .page-header) */
@@ -1016,7 +1172,7 @@
         </div>
     </nav>
 
-    <section class="programs">
+    <section class="programme-section">
         <div class="programme-band">
             <div class="program-intro">
                 <h3>The Better<span class="bh-health">Health</span> Programme</h3>
@@ -1039,7 +1195,9 @@
                 <p class="program-closing-note">We'll decide together on the discovery call.</p>
             </div>
         </div>
+    </section>
 
+    <section class="programs">
         <div class="working-hero">
             <div class="working-hero-media">
                 <div class="working-hero-text">
@@ -1104,9 +1262,9 @@
             </div>
             <div class="events-grid">
                 <div class="event-card">
-                    <div class="event-card-media">
+                    <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
                         <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
-                    </div>
+                    </button>
                     <div class="event-card-body">
                         <div class="event-card-top">
                             <span class="event-badge">Upcoming</span>
@@ -1114,6 +1272,19 @@
                         </div>
                         <h4>4 Weeks to Balanced Blood Sugar</h4>
                         <p class="event-desc">Evening classes with a nutritionist &amp; health coach.</p>
+                        <div class="event-details" id="eventDetails" hidden>
+                            <ul class="event-format">
+                                <li>4 &times; 1-hour online evening classes</li>
+                                <li>Optional WhatsApp support group</li>
+                                <li>Live questions &amp; answers</li>
+                                <li>Practical, evidence-informed guidance</li>
+                            </ul>
+                            <p class="event-hosts">Led by <strong>Tuğçe Akkalay</strong>, Functional Medicine Health Coach, and <strong>Suzannah Winsor</strong>, Biomedical Scientist and Registered Nutritionist.</p>
+                        </div>
+                        <div class="event-actions">
+                            <button type="button" class="event-learn-more" aria-expanded="false" aria-controls="eventDetails">Learn more</button>
+                            <a href="./images/event-blood-sugar-flyer.jpg" download class="event-download">Download flyer</a>
+                        </div>
                         <div class="event-card-footer">
                             <a href="https://www.eventbrite.co.uk/e/4-weeks-to-balanced-blood-sugar-group-evening-classes-in-october-registration-1998901544328" target="_blank" rel="noopener" class="cta-button dark">Book on Eventbrite</a>
                         </div>
@@ -1122,6 +1293,11 @@
             </div>
         </div>
     </section>
+
+    <div class="event-lightbox" id="eventLightbox" hidden>
+        <button type="button" class="event-lightbox-close" id="eventLightboxClose" aria-label="Close">&times;</button>
+        <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer">
+    </div>
 
     <section class="groups-section" id="contact">
         <div class="groups-card">
@@ -1208,6 +1384,38 @@
             }
             lastScroll = scroll;
         }, { passive: true });
+
+        // Event flyer lightbox
+        const lightbox = document.getElementById('eventLightbox');
+        const lightboxClose = document.getElementById('eventLightboxClose');
+        document.querySelectorAll('[data-lightbox-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                lightbox.hidden = false;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeLightbox() {
+            lightbox.hidden = true;
+            document.body.style.overflow = '';
+        }
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.hidden) closeLightbox();
+        });
+
+        // Event "Learn more" expand/collapse
+        document.querySelectorAll('.event-learn-more').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const details = document.getElementById(btn.getAttribute('aria-controls'));
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                details.hidden = expanded;
+                btn.textContent = expanded ? 'Learn more' : 'Show less';
+            });
+        });
     </script>
 </body>
 
