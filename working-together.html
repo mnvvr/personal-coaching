@@ -471,14 +471,17 @@
         .programme-band::before {
             content: '';
             position: absolute;
-            inset: 0;
+            top: var(--nav-height, 140px);
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-color: var(--medium-purple);
             -webkit-mask-image: url('./images/press-kit/logo-icon.svg');
             mask-image: url('./images/press-kit/logo-icon.svg');
             -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
-            -webkit-mask-position: 58% center;
-            mask-position: 58% center;
+            -webkit-mask-position: center center;
+            mask-position: center center;
             -webkit-mask-size: min(560px, 60vw);
             mask-size: min(560px, 60vw);
             opacity: 0.28;
