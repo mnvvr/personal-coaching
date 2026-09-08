@@ -696,16 +696,9 @@
             margin: 0 auto;
         }
 
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            justify-content: center;
-            gap: clamp(1.25rem, 2.5vw, 1.75rem);
-        }
-
         .events-header {
             text-align: center;
-            margin-bottom: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
         }
 
         .events-header h3 {
@@ -713,15 +706,51 @@
             letter-spacing: -0.015em;
         }
 
-        .event-card {
+        .events-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-row {
             display: flex;
             align-items: flex-start;
-            gap: clamp(1.5rem, 3vw, 2.5rem);
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+            padding: clamp(2rem, 4vw, 2.75rem) 0;
+            border-top: 1px solid var(--border-medium);
+        }
+
+        .event-row:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .event-row-date {
+            flex: 0 0 auto;
+            width: clamp(64px, 6vw, 88px);
+            padding-top: 0.2rem;
+        }
+
+        .event-row-date .event-row-month {
+            display: block;
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(1.25rem, 1.8vw + 0.5rem, 1.625rem);
+            color: var(--medium-purple);
+            letter-spacing: -0.01em;
+        }
+
+        .event-row-date .event-row-year {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 0.15rem;
         }
 
         .event-card-media {
-            flex: 0 0 clamp(320px, 42%, 460px);
-            aspect-ratio: 3 / 4;
+            flex: 0 0 clamp(180px, 20vw, 240px);
+            aspect-ratio: 4 / 3;
             display: block;
             border: 1px solid var(--border-subtle);
             border-radius: clamp(10px, 1.5vw, 14px);
@@ -755,28 +784,28 @@
         .event-card-media::after {
             content: '\2922';
             position: absolute;
-            top: 0.6rem;
-            right: 0.6rem;
-            width: 28px;
-            height: 28px;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             background: rgba(34, 54, 56, 0.55);
             color: var(--white);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        @media (max-width: 34rem) {
-            .event-card {
-                flex-direction: column;
+        @media (max-width: 40rem) {
+            .event-row {
+                flex-wrap: wrap;
             }
 
             .event-card-media {
-                flex: none;
-                width: 100%;
-                height: 340px;
+                flex: 0 0 100%;
+                aspect-ratio: 16 / 9;
+                order: -1;
             }
         }
 
@@ -797,6 +826,7 @@
 
         .event-badge {
             display: inline-block;
+            align-self: flex-start;
             padding: 0.3rem 0.75rem;
             border-radius: 999px;
             background: rgba(42, 107, 110, 0.1);
@@ -805,6 +835,7 @@
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            margin-bottom: 0.6rem;
         }
 
         .event-date {
@@ -814,7 +845,7 @@
         }
 
         .event-card h4 {
-            font-size: clamp(1.375rem, 1.5vw + 0.75rem, 1.75rem);
+            font-size: clamp(1.25rem, 1.4vw + 0.75rem, 1.625rem);
             letter-spacing: -0.01em;
             line-height: 1.25;
             margin-bottom: 0.5rem;
@@ -825,6 +856,32 @@
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 1rem;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 1.25rem;
+        }
+
+        .event-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .event-meta-label {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .event-meta-value {
+            font-size: 0.9375rem;
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         .event-details {
@@ -1287,18 +1344,29 @@
                     <span class="program-eyebrow">EVENTS</span>
                     <h3>Upcoming Events</h3>
                 </div>
-                <div class="events-grid">
-                    <div class="event-card">
+                <div class="events-list">
+                    <div class="event-row">
+                        <div class="event-row-date">
+                            <span class="event-row-month">Oct</span>
+                            <span class="event-row-year">2026</span>
+                        </div>
                         <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
                             <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
                         </button>
                         <div class="event-card-body">
-                            <div class="event-card-top">
-                                <span class="event-badge">Upcoming</span>
-                                <span class="event-date">October 2026</span>
-                            </div>
+                            <span class="event-badge">Upcoming</span>
                             <h4>4 Weeks to Balanced Blood Sugar</h4>
                             <p class="event-desc">Evening classes with a nutritionist &amp; health coach.</p>
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <span class="event-meta-label">Format</span>
+                                    <span class="event-meta-value">Online</span>
+                                </div>
+                                <div class="event-meta-item">
+                                    <span class="event-meta-label">Duration</span>
+                                    <span class="event-meta-value">4 &times; 1-hour sessions</span>
+                                </div>
+                            </div>
                             <div class="event-details" id="eventDetails">
                                 <ul class="event-format">
                                     <li>4 &times; 1-hour online evening classes</li>
