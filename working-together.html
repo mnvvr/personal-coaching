@@ -678,9 +678,22 @@
         }
 
         /* Events */
+        .events-section {
+            max-width: none !important;
+            margin: 0;
+            padding: 0 !important;
+            width: 100%;
+        }
+
+        .events-band {
+            width: 100%;
+            background-color: var(--medium-purple);
+            padding: clamp(3rem, 6vh, 5rem) clamp(1.5rem, 4vw, 3rem);
+        }
+
         .events-block {
             max-width: 1150px;
-            margin: clamp(4rem, 8vw, 6rem) auto 0;
+            margin: 0 auto;
         }
 
         .events-grid {
@@ -695,14 +708,20 @@
             margin-bottom: clamp(2rem, 4vw, 2.75rem);
         }
 
+        .events-header .program-eyebrow {
+            color: var(--white);
+        }
+
         .events-header h3 {
             font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
             letter-spacing: -0.015em;
+            color: var(--white);
         }
 
         .event-card {
             display: flex;
-            align-items: stretch;
+            align-items: flex-start;
+            background: var(--white);
             border: 1px solid var(--border-subtle);
             border-radius: clamp(10px, 1.5vw, 14px);
             overflow: hidden;
@@ -710,11 +729,12 @@
         }
 
         .event-card:hover {
-            border-color: var(--medium-purple);
+            border-color: var(--dark-purple);
         }
 
         .event-card-media {
             flex: 0 0 clamp(280px, 32%, 380px);
+            aspect-ratio: 4 / 5;
             display: block;
             border: none;
             padding: 0;
@@ -731,6 +751,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top;
             transition: transform 0.4s ease;
         }
 
@@ -1265,35 +1286,39 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="events-block" id="events">
-            <div class="events-header">
-                <span class="program-eyebrow">EVENTS</span>
-                <h3>Upcoming Events</h3>
-            </div>
-            <div class="events-grid">
-                <div class="event-card">
-                    <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
-                        <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
-                    </button>
-                    <div class="event-card-body">
-                        <div class="event-card-top">
-                            <span class="event-badge">Upcoming</span>
-                            <span class="event-date">October 2026</span>
-                        </div>
-                        <h4>4 Weeks to Balanced Blood Sugar</h4>
-                        <p class="event-desc">Evening classes with a nutritionist &amp; health coach.</p>
-                        <div class="event-details" id="eventDetails">
-                            <ul class="event-format">
-                                <li>4 &times; 1-hour online evening classes</li>
-                                <li>Optional WhatsApp support group</li>
-                                <li>Live questions &amp; answers</li>
-                                <li>Practical, evidence-informed guidance</li>
-                            </ul>
-                            <p class="event-hosts">Led by <strong>Tuğçe Akkalay</strong>, Functional Medicine Health Coach, and <strong>Suzannah Winsor</strong>, Biomedical Scientist and Registered Nutritionist.</p>
-                        </div>
-                        <div class="event-card-footer">
-                            <a href="https://www.eventbrite.co.uk/e/4-weeks-to-balanced-blood-sugar-group-evening-classes-in-october-registration-1998901544328" target="_blank" rel="noopener" class="cta-button dark">Book on Eventbrite</a>
+    <section class="events-section">
+        <div class="events-band">
+            <div class="events-block" id="events">
+                <div class="events-header">
+                    <span class="program-eyebrow">EVENTS</span>
+                    <h3>Upcoming Events</h3>
+                </div>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
+                            <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
+                        </button>
+                        <div class="event-card-body">
+                            <div class="event-card-top">
+                                <span class="event-badge">Upcoming</span>
+                                <span class="event-date">October 2026</span>
+                            </div>
+                            <h4>4 Weeks to Balanced Blood Sugar</h4>
+                            <p class="event-desc">Evening classes with a nutritionist &amp; health coach.</p>
+                            <div class="event-details" id="eventDetails">
+                                <ul class="event-format">
+                                    <li>4 &times; 1-hour online evening classes</li>
+                                    <li>Optional WhatsApp support group</li>
+                                    <li>Live questions &amp; answers</li>
+                                    <li>Practical, evidence-informed guidance</li>
+                                </ul>
+                                <p class="event-hosts">Led by <strong>Tuğçe Akkalay</strong>, Functional Medicine Health Coach, and <strong>Suzannah Winsor</strong>, Biomedical Scientist and Registered Nutritionist.</p>
+                            </div>
+                            <div class="event-card-footer">
+                                <a href="https://www.eventbrite.co.uk/e/4-weeks-to-balanced-blood-sugar-group-evening-classes-in-october-registration-1998901544328" target="_blank" rel="noopener" class="cta-button dark">Book on Eventbrite</a>
+                            </div>
                         </div>
                     </div>
                 </div>
