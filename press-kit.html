@@ -865,19 +865,41 @@
             });
         });
 
-        // Hide nav on scroll down, show on scroll up
+        // Hide nav on scroll down, show on scroll up (desktop only). On
+        // touch devices the nav stays permanently visible/fixed with no
+        // transform animation at all - iOS Safari's own dynamic toolbar
+        // already animates on scroll, and our nav sliding in/out at the
+        // same time caused it to visibly tear/ghost against that.
         const navEl = document.querySelector('nav');
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            if (navLinks.classList.contains('mobile-active')) return;
-            const scroll = window.scrollY;
-            if (scroll > 80) {
-                navEl.classList.toggle('nav-hidden', scroll > lastScroll);
-            } else {
-                navEl.classList.remove('nav-hidden');
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+        if (!isTouchDevice) {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                if (navLinks.classList.contains('mobile-active')) return;
+                const scroll = window.scrollY;
+                if (scroll > 80) {
+                    navEl.classList.toggle('nav-hidden', scroll > lastScroll);
+                } else {
+                    navEl.classList.remove('nav-hidden');
+                }
+                lastScroll = scroll;
+            }, { passive: true });
+        }
+
+        // On iOS Safari, position:fixed is anchored to the layout viewport,
+        // which can drift out of sync with the actually-visible (visual)
+        // viewport while the browser's own dynamic toolbar is animating -
+        // that mismatch is what exposes page content in a gap above the
+        // nav. Actively pin the nav to the real visual viewport instead.
+        if (isTouchDevice && window.visualViewport) {
+            const vv = window.visualViewport;
+            function syncNavToVisualViewport() {
+                navEl.style.transform = vv.offsetTop ? `translateY(${vv.offsetTop}px)` : '';
             }
-            lastScroll = scroll;
-        }, { passive: true });
+            vv.addEventListener('resize', syncNavToVisualViewport);
+            vv.addEventListener('scroll', syncNavToVisualViewport);
+            syncNavToVisualViewport();
+        }
     </script>
 </body>
 
