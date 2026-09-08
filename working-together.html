@@ -713,7 +713,7 @@
 
         .event-row {
             display: flex;
-            align-items: stretch;
+            align-items: center;
             gap: clamp(1.25rem, 3vw, 2.5rem);
             padding: clamp(2rem, 4vw, 2.75rem) 0;
             border-top: 1px solid var(--border-medium);
@@ -721,7 +721,7 @@
 
         .event-row-media-group {
             display: flex;
-            align-items: stretch;
+            align-items: center;
             gap: clamp(1rem, 2vw, 1.5rem);
             flex: 0 0 auto;
         }
@@ -757,6 +757,7 @@
 
         .event-card-media {
             flex: 0 0 clamp(180px, 20vw, 240px);
+            aspect-ratio: 4 / 3;
             display: block;
             border: 1px solid var(--border-subtle);
             border-radius: clamp(10px, 1.5vw, 14px);
