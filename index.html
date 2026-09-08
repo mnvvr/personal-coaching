@@ -2826,21 +2826,6 @@
             logoImg.addEventListener('load', setNavHeightVar, { once: true });
         }
 
-        // On iOS Safari, position:fixed is anchored to the layout viewport,
-        // which can drift out of sync with the actually-visible (visual)
-        // viewport while the browser's own dynamic toolbar is animating -
-        // that mismatch is what exposes page content in a gap above the
-        // nav. Actively pin the nav to the real visual viewport instead.
-        if (isTouchDevice && window.visualViewport) {
-            const vv = window.visualViewport;
-            function syncNavToVisualViewport() {
-                navEl.style.transform = vv.offsetTop ? `translateY(${vv.offsetTop}px)` : '';
-            }
-            vv.addEventListener('resize', syncNavToVisualViewport);
-            vv.addEventListener('scroll', syncNavToVisualViewport);
-            syncNavToVisualViewport();
-        }
-
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
