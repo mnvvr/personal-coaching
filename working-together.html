@@ -687,7 +687,7 @@
 
         .events-band {
             width: 100%;
-            background-color: var(--medium-purple);
+            background-color: var(--bg-sand);
             padding: clamp(3rem, 6vh, 5rem) clamp(1.5rem, 4vw, 3rem);
         }
 
@@ -708,40 +708,33 @@
             margin-bottom: clamp(2rem, 4vw, 2.75rem);
         }
 
-        .events-header .program-eyebrow {
-            color: var(--white);
-        }
-
         .events-header h3 {
             font-size: clamp(1.5rem, 3vw + 0.3rem, 2.125rem);
             letter-spacing: -0.015em;
-            color: var(--white);
         }
 
         .event-card {
             display: flex;
             align-items: flex-start;
-            background: var(--white);
-            border: 1px solid var(--border-subtle);
-            border-radius: clamp(10px, 1.5vw, 14px);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover {
-            border-color: var(--dark-purple);
+            gap: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .event-card-media {
             flex: 0 0 clamp(280px, 32%, 380px);
             aspect-ratio: 4 / 5;
             display: block;
-            border: none;
+            border: 1px solid var(--border-subtle);
+            border-radius: clamp(10px, 1.5vw, 14px);
             padding: 0;
             margin: 0;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .event-card-media:hover {
+            border-color: var(--medium-purple);
         }
 
         .event-card-media img {
@@ -790,7 +783,6 @@
         .event-card-body {
             flex: 1;
             min-width: 0;
-            padding: clamp(1.5rem, 3vw, 2.5rem);
             display: flex;
             flex-direction: column;
         }
