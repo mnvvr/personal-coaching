@@ -2775,22 +2775,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <script>
-        // Initialize Lenis smooth scroll
-        const lenis = new Lenis({
+        // Lenis smooth scroll is desktop-only: on touch devices its virtual
+        // scroll (transform/RAF driven) fights iOS Safari's own momentum
+        // scroll and dynamic toolbar animation, causing visible tearing
+        // around fixed-position elements. Mobile/touch just uses native
+        // scroll instead, same as the site's other two pages.
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+        const lenis = isTouchDevice ? null : new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smooth: true,
-            gestureDirection: 'vertical',
-            smoothTouch: false
+            gestureDirection: 'vertical'
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            ScrollTrigger.update();
+        if (lenis) {
+            function raf(time) {
+                lenis.raf(time);
+                ScrollTrigger.update();
+                requestAnimationFrame(raf);
+            }
             requestAnimationFrame(raf);
         }
-
-        requestAnimationFrame(raf);
 
         // Keep the hero's content centered in the space actually visible
         // below the fixed nav (nav overlays the hero, so centering against
@@ -2806,19 +2811,33 @@
             logoImg.addEventListener('load', setNavHeightVar, { once: true });
         }
 
-        // Hide nav on scroll down, show on scroll up
-        lenis.on('scroll', ({ scroll, direction }) => {
-            if (navLinks.classList.contains('mobile-active')) return;
-            if (scroll > 80) {
-                navEl.classList.toggle('nav-hidden', direction > 0);
-            } else {
-                navEl.classList.remove('nav-hidden');
-            }
-        });
-
         // Mobile Menu Toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
+
+        // Hide nav on scroll down, show on scroll up
+        if (lenis) {
+            lenis.on('scroll', ({ scroll, direction }) => {
+                if (navLinks.classList.contains('mobile-active')) return;
+                if (scroll > 80) {
+                    navEl.classList.toggle('nav-hidden', direction > 0);
+                } else {
+                    navEl.classList.remove('nav-hidden');
+                }
+            });
+        } else {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                if (navLinks.classList.contains('mobile-active')) return;
+                const scroll = window.scrollY;
+                if (scroll > 80) {
+                    navEl.classList.toggle('nav-hidden', scroll > lastScroll);
+                } else {
+                    navEl.classList.remove('nav-hidden');
+                }
+                lastScroll = scroll;
+            }, { passive: true });
+        }
 
         mobileMenuToggle.addEventListener('click', function () {
             this.classList.toggle('active');
