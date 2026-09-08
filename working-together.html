@@ -719,6 +719,13 @@
             border-top: 1px solid var(--border-medium);
         }
 
+        .event-row-media-group {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            flex: 0 0 auto;
+        }
+
         .event-row:first-child {
             padding-top: 0;
             border-top: none;
@@ -802,10 +809,14 @@
                 flex-wrap: wrap;
             }
 
-            .event-card-media {
-                flex: 0 0 100%;
-                aspect-ratio: 16 / 9;
+            .event-row-media-group {
                 order: -1;
+                width: 100%;
+            }
+
+            .event-card-media {
+                flex: 1;
+                aspect-ratio: 16 / 9;
             }
         }
 
@@ -1346,13 +1357,15 @@
                 </div>
                 <div class="events-list">
                     <div class="event-row">
-                        <div class="event-row-date">
-                            <span class="event-row-month">Oct</span>
-                            <span class="event-row-year">2026</span>
+                        <div class="event-row-media-group">
+                            <div class="event-row-date">
+                                <span class="event-row-month">Oct</span>
+                                <span class="event-row-year">2026</span>
+                            </div>
+                            <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
+                                <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
+                            </button>
                         </div>
-                        <button type="button" class="event-card-media" data-lightbox-trigger aria-label="View full flyer for 4 Weeks to Balanced Blood Sugar">
-                            <img src="./images/event-blood-sugar-flyer.jpg" alt="4 Weeks to Balanced Blood Sugar event flyer" loading="lazy">
-                        </button>
                         <div class="event-card-body">
                             <span class="event-badge">Upcoming</span>
                             <h4>4 Weeks to Balanced Blood Sugar</h4>
