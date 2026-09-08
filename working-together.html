@@ -285,6 +285,21 @@
         }
 
         @media (max-width: 64rem) {
+            /* iOS Safari's dynamic toolbar can briefly reveal a gap above
+               the fixed nav during its own show/hide animation, exposing
+               page content underneath. Extend the nav's white background
+               upward so that gap shows solid white instead. */
+            nav::before {
+                content: '';
+                position: absolute;
+                top: -100px;
+                left: 0;
+                right: 0;
+                height: 100px;
+                background: var(--white);
+                z-index: -1;
+            }
+
             .mobile-menu-toggle {
                 display: flex;
             }
